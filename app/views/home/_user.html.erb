@@ -1,0 +1,3 @@
+<div class="user">
+  <%=user.email%><%= link_to('follow', user_follow_path(user), remote:true,method: :post) %>
+</div>
