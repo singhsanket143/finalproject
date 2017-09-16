@@ -1,35 +1,164 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Hackquora</title>
-
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <% if notice %>
-    <script type="text/javascript">
-        noty({text: '<%= notice %>', type: 'alert', timeout: 3500, progressBar: true});
-    </script>
+  <script type="text/javascript">
+  noty({text: '<%= notice %>', type: 'alert', timeout: 3500, progressBar: true});
+  </script>
+  <% end %>
+  <% if alert %>
+  <script type="text/javascript">
+  noty({text: '<%= alert %>', type: 'error', timeout: 5000, progressBar: true});
+  </script>
+  <% end %>
+  <nav>
+    <div class="nav-wrapper red">
+      <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+      <ul class="side-nav grey darken-2" id="mobile-demo">
+        <li class="sidenav-header red center">
+          <div class="row">
+            <div class="col s4">
+              <!-- profile image -->
+              <img src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" width="98px" height="98px" alt="" class="circle responsive-img valign profile-image">
+            </div>
+            <div class="col s8">
+              <a class="btn-flat dropdown-button waves-effect waves-light white-text" href="#" data-activates="profile-dropdown">MITHU<i class="mdi-navigation-arrow-drop-down right"></i></a>
+              <ul id="profile-dropdown" class="dropdown-content">
+                <li><a href="#"><i class="material-icons">person</i>Profile</a></li>
+                <li><a href="#"><i class="material-icons">settings</i>Setting</a></li>
+                <li><a href="#"><i class="material-icons">help</i>Help</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="material-icons">lock</i>Lock</a></li>
+                <%if user_signed_in?%>
+                <li><a><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
+                <!-- <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i></a></li> -->
+                <%end%>
 
-<% end %>
+              </ul>
+            </div>
+          </div>
+          <ul class="hide-on-med-and-up">
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" required>
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
 
-<% if alert %>
+              </div>
+            </form>
+          </ul>
+          <ul class="collapsible collapsible-accordion hide-on-small-only">
+            <li>
+              <a class="collapsible-header white-text waves-effect waves-blue "><i class="material-icons white-text ">person</i>Profile <i class="material-icons right white-text" style="margin-right:0;">arrow_drop_down</i></a>
+              <div class="collapsible-body z-depth-3">
+                <ul>
+                  <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">person</i>Profile</a></li>
+                  <li class="divider"></li>
+                  <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">settings</i>Settings</a></li>
+                  <li class="divider"></li>
+                  <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">help</i>Help</a></li>
+                  <li class="divider"></li>
+                  <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">lock</i>Lock</a></li>
+                  <li class="divider"></li>
+                  <%if user_signed_in?%>
 
-    <script type="text/javascript">
-        noty({text: '<%= alert %>', type: 'error', timeout: 5000, progressBar: true});
-    </script>
-<% end %>
+                  <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
+                  <li class="divider"></li>
 
-<%if user_signed_in?%>
-    <%= link_to "Sign Out",destroy_user_session_path,method: :delete%>
-    <%=link_to(avatar_for(current_user,size: 35),current_user)%>
-    <%end%>
+                  <%end%>
 
 
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <ul class="hide-on-med-and-up">
+            <li><a class="dropdown-button white-text" data-activates="dropdown2"><i class="material-icons white-text ">person</i>ProfileD<i class="material-icons right white-text"style="margin-right:0;">arrow_drop_down</i></a></li>
+          </ul>
+          <ul id="dropdown2" class="dropdown-content white-text">
+            <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">person</i>Profile</a></li>
+            <li class="divider"></li>
+            <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">settings</i>Settings</a></li>
+            <li class="divider"></li>
+            <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">help</i>Help</a></li>
+            <li class="divider"></li>
+            <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">lock</i>Lock</a></li>
+            <li class="divider"></li>
+            <%if user_signed_in?%>
+            <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
+            <li class="divider"></li>
+            <%end%>
+          </ul>
+        </li>
 
+        <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">mail</i>Home</a></li>
+        <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">person</i>About</a></li>
+        <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">android</i> Menu item</a></li>
+        <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">call</i>Contact</a></li>
+        <li class="white"><div class="divider"></div></li>
+      </ul>
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right">
+
+        <%if user_signed_in?%>
+        <li><a href="#"class="dropdown-button" data-activates="dropdown2"><div class="col s4">
+          <!-- profile image -->
+          <img src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" alt="" class="circle responsive-img valign profile-image" width="48px" height="48px">
+        </div></a></li>
+        <%=link_to(avatar_for(current_user,size: 35),current_user)%>
+        <%end%>
+
+
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li right>
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+
+            </div>
+          </form>
+        </li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+
+        <%if user_signed_in?%>
+        <li><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></li>
+        <%end%>
+
+        <li><a href="" class="dropdown-button" data-activates="dropdown1"><i class="material-icons right">notifications</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <br><br>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <div class="container">
     <%= yield %>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
 
+  <script>
+  $(".button-collapse").sideNav();
+  </script>
 </body>
 </html>
