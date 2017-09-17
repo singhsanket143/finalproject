@@ -1,4 +1,4 @@
-header nav {
+/*header nav {
     position: fixed;
     z-index: 1000;
     background: #2196F3;
@@ -47,17 +47,17 @@ main .icons .big-icon {
     width: 180px;
     height: 180px;
     /*background: url(http://simplyleonardodicaprio.com/wp-content/uploads/leo-1.jpg) center top;*/
-    background-size: 140%;
+    /*background-size: 140%;
     border-radius: 50%;
 
     margin-top: -90px;
 }
 main .icons .big-icon img{
     margin-right: 180px;
-    border-radius: 130px;
+    border-radius: 130px;*/
     /*height:80px;*/
     /*width: 80px;*/
-    padding:20px;
+    /*padding:20px;
 
 }
 main .icons .rate {
@@ -279,4 +279,4 @@ main .fab .orange i {
     .fab {
         display: none;
     }
-}
+}*/

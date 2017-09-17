@@ -2,11 +2,7 @@
 	<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Material Card</title>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
- 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-  <%= stylesheet_link_tag    'questionlist', media: 'all', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+	
 </head>
 <body>
   <!-- <div class="col s12"> -->
@@ -20,7 +16,6 @@
 	 </div>
 	 </div>
  <!-- </div> -->
-
 <!-- <div class="container"> -->
   <div class="createQuestion">
   <%= form_for @question, remote: true do |task|%>
@@ -40,7 +35,7 @@
   <% end %>
 </div>
 <!-- </div> -->
-
 <!-- </div> -->
+
 
 </body>
