@@ -1,39 +1,39 @@
 <head>
   <!--Import Google Icon Font-->
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
   <!-- <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'> -->
   <!--Import materialize.css-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
 
   <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
 
   <style type="text/css">
 
   /* Imports */
   @import url(https://fonts.googleapis.com/css?family=Lato:400,300);
-  .collapsible-header{
-    min-height: 11rem;
-    line-height: 1.5rem;
+  .card-title{
+    /*min-height: 11rem;*/
+    /*line-height: 1.5rem;*/
     padding:1rem;
     border-bottom: 0px;
   }
 
-  .collapsible-header .fakeimage {
+  .card-title .fakeimage {
     width: 50px;
     height: 50px;
-    margin: 0px 20px 0px 10px;
+    /*margin: 0px 20px 0px 10px;*/
     float: left;
     border-radius: 100%;
     background: #aaa;
   }
-  .collapsible-header h2,  .collapsible-header .wrap > p {
+  .card-title h2,  .card-title .wrap > p {
     margin-bottom: 10px;
     font-family: Lato, sans-serif;
     font-size: 1.2em;
     color: #222;
   }
-  .collapsible-header p {
+  .card-title p {
     margin-right: 10px;
     margin-left: 10px;
     font-family: Lato, sans-serif;
@@ -41,11 +41,11 @@
     color: #aaa;
     float: left;
   }
-  .collapsible-header #head {
+  .card-title #head {
     font-size: 1.2rem;
-    line-height: 3rem;
+    /*line-height: 3rem;*/
   }
-  .collapsible-header p i {
+  .card-title p i {
     font-size: 2.2rem;
 
   }
@@ -55,34 +55,43 @@
 
 
 </head>
-<div class="answer">
-  <div class="userDetail">
-    <div class="collapsible-header">
 
-      <div class="fakeimage"></div>
-      <p id="head"><i class="material-icons right">date_range</i>01/21/15</p>
-      <p id="head"><i class="material-icons right">person</i><%= answer.user.name %></p>
-      <br>
-      <p><%= answer.content[1..60] %></p>
-    </div>
-    <div class="collapsible-body">
-      <p><%= answer.content %></p>
-      <br>
-      <i class="material-icons left">forum</i><%= link_to 'Show', answer ,params[id: answer.id]%>
-      <%if can? :update,answer%>
-      <p><i class="material-icons right">create</i><%= link_to 'Edit', answer %></p>
+  <div class="answer">
+    <div class="userDetail">
+      <div class="card">
+         <!--  answer.created_at.strftime("%B %d, %Y")-->
+        <div class="card-title">
+        <div class="fakeimage"></div>
+        <p id="head"><i class="material-icons right">date_range</i><%= time_ago_in_words(answer.created_at) unless answer.created_at.blank? %> ago</p>
+        <p id="head"><i class="material-icons right">person</i><%= answer.user.name %></p>
 
-      <% end %>.
-      <%if can? :destroy,answer%>
-      <p><i class="material-icons right">delete</i><%= link_to "", answer, method: :delete, data: {confirm: "Are you sure?"}%></p>
-      <% end %>
+        <br>
+      </div>
+      <div class="card-content grey-text">
+        <p><%= answer.content %></p>
+        <br>
+        <div class="row">
+          <%= link_to ('<i class="material-icons right">forum</i>').html_safe, answer ,params[id: answer.id]%></button>
+          <%if can? :update,answer%>
+          <%= link_to ('<i class="material-icons right">create</i>').html_safe, answer %>
+                  <% end %>.
+          <%if can? :destroy,answer%>
+
+          <%= link_to ('<i class="material-icons right">delete</i>').html_safe, answer, method: :delete, data: {confirm: "Are you sure?"}%>
+
+          <% end %>
+        </div>
+
+      </div>
+      </div>
     </div>
   </div>
-</div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.collapsible').collapsible();
-});
-</script>
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
+  <!-- <script type="text/javascript">
+  $(document).ready(function(){
+    $('.collapsible').collapsible({
+        accordion : true
+    });
+  });
+  </script> -->

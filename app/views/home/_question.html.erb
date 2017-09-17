@@ -1,10 +1,10 @@
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> -->
 <%= stylesheet_link_tag    'questionlist', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
 
   <div class="col s12 m6 l6">
     <aside class="card ques" elevation="2">
@@ -15,7 +15,7 @@
 			<figure elevation="1"></figure>
 			<div class="text small">
 				<h1><%= question.user.email %></h1>
-				<h2>12.04.2017 12:30p.m.</h2>
+				<h2><%= time_ago_in_words(question.created_at) unless question.created_at.blank? %> ago</h2>
 			</div>
 		</header>
 <!-- 		<figure class="rich_media" id="image_1"></figure> -->
@@ -40,7 +40,7 @@
 
 </aside>
     </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script> -->
 
 <%= javascript_include_tag 'questionlist', 'data-turbolinks-track' => true %>
