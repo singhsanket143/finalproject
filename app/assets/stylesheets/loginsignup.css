@@ -1,16 +1,16 @@
-
+/*
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,700');
 
 /************ Start Main Rules **************/
-*{
+/**{
     margin: 0;
     padding: 0;
     outline: none;
-    box-sizing: border-box;
+    box-sizing: border-box;*/
 
     /*   font-family: 'Roboto', sans-serif; */font-family: 'Raleway', sans-serif;
-}
+/*}
 
 body{background: white  }
 
@@ -43,10 +43,10 @@ body{background: white  }
     bottom: -2px;
     border: none;
     border-bottom: 1px solid #63d5c4;
-}
+}*/
 
 /************ Start Slider Container **************/
-.slider-cont,
+/*.slider-cont,
 .form-cont{
     width: 50%;
     height: 100%;
@@ -136,10 +136,10 @@ input:-webkit-autofill {
     text-align: center;
     transform: translateY(-50%);
     background-color: transparent;
-}
+}*/
 
 /************ Start Form Container **************/
-
+/*
 .top-buttons {
     position: relative;
     display: block;
@@ -256,4 +256,4 @@ input.form-btn:hover{
 .form-signin{
     display: none;
     padding-top: 120px;
-}
+}*/
