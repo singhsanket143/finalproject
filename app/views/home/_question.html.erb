@@ -28,9 +28,12 @@
         <%= link_to 'Show', question ,params[id: question.id]%>
         <%= link_to('follow', question_follow_path(question), remote:true,method: :post) %>
 			<div class="right">
-				<button class="icon"><i class="material-icons">favorite_border</i><%= link_to('', question_like_path(question), remote:true,method: :post ,class: "like" ) %></button><button class="icon"><i class="material-icons">comment</i><a href="#"></a></button>
+        <!-- <button class="icon"><i class="material-icons">favorite_border</i></button> -->
+				<%= link_to('Like', question_like_path(question), remote:true,method: :post ,class: "like" ) %>
+        <button class="icon"><i class="material-icons">comment</i><a href="#"></a></button>
 <%if can? :destroy,question%>
-        <button class="icon"><i class="material-icons">delete</i><%= link_to "", question, method: :delete, data: {confirm: "Are you sure?"}%></button>
+<%= link_to ('<i class="material-icons right">delete</i>').html_safe, question, method: :delete, data: {confirm: "Are you sure?"}%>
+
         <%end%>
 			</div>
 		</div>

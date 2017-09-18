@@ -58,6 +58,7 @@ end
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
+    Like.all.where(likeable_type: "Question", likeable_id: @question.id)
     @question.destroy
     respond_to do |format|
       format.html { redirect_to '/', notice: 'Question was successfully destroyed.' }
