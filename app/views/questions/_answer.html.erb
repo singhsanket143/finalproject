@@ -80,6 +80,18 @@
           <%= link_to ('<i class="material-icons right">delete</i>').html_safe, answer, method: :delete, data: {confirm: "Are you sure?"}%>
 
           <% end %>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+  </div>
         </div>
 
       </div>
@@ -95,3 +107,12 @@
     });
   });
   </script> -->
+  <script type="text/javascript">
+  $(document).ready(function(){
+ // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+ $('#modal1').modal();
+  $('#modal1').modal('open');
+  $('.trigger-modal').modal();
+   $('#modal1').modal('close');
+});
+  </script>
