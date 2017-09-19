@@ -98,6 +98,29 @@
       </div>
     </div>
   </div>
+    <div class="createComment">
+     <%= form_for @comment, :url => comments_path(answer_id:answer.id), remote: true do |task|%>
+        <%= task.label :content %><br>
+        <%= task.text_area :content %><br>
+        <div class="actions">
+          <%= task.submit id: 'create_comment_submit'%>
+        </div>
+        <% end %>
+        <% if @comment.errors.any? %>
+        <% @comment.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+  </div>
+
+
+  <div id="comments">
+    <% @commentfeed.each do |comment| %>
+    <%= render 'comment' , comment: comment %>
+    <% end %>
+  
+  </div>
+
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
   <!-- <script type="text/javascript">

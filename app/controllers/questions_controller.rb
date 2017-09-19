@@ -10,8 +10,10 @@ def show
   respond_to do |format|
     format.html{
       @question=Question.find(params[:id])
-       @answer = Answer.new(question_id: params[@question.id])
+      @answer = Answer.new(question_id: params[@question.id])
       @answerfeed=@question.answerfeed @question.id
+      @comment = Comment.new(answer_id: params[@answer.id])
+      # @commentfeed=@answer.commentfeed @answer.id
 
     }
     format.js{  }

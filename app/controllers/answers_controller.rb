@@ -17,6 +17,7 @@ class AnswersController < ApplicationController
         @answer=Answer.find(params[:id])
         @comment = Comment.new(answer_id: params[@answer.id])
         @commentfeed=@answer.commentfeed @answer.id
+      
 
       }
       format.js {}
@@ -40,10 +41,14 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
     respond_to do |format|
       if @answer.save
+
         UserMailer.new_answer(@answer).deliver_now
         format.html {redirect_to 'home/questions/', notice: 'Answer was successfully created.'}
         format.js {}
+        @comment = Comment.new(answer_id: params[@answer.id])
+        @commentfeed=@answer.commentfeed @answer.id
         format.json {render :show, status: :created, location: @answer}
+
       else
         format.html {render 'home/index'}
         format.json {render json: @answer.errors, status: :unprocessable_entity}

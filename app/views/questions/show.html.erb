@@ -101,7 +101,9 @@
 
     <% @answerfeed.each do |answer| %>
      <div class="col s12 m12 l12">
+       <% @commentfeed= answer.commentfeed answer.id %>
     <%= render 'answer' , answer: answer %>
+
 </div>
     <% end %>
 </div>
