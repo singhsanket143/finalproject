@@ -1,0 +1,139 @@
+<style media="screen">
+#modal7 .modal-content{
+  padding-top: 130px;
+  padding: 2px;
+}
+.row2{
+  padding-top: 10px;
+}
+.row1{
+  padding-bottom: 3px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.card-panel1{
+  background: linear-gradient(60deg, #ab47bc, #7b1fa2);
+  height: 120px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+#tabsign a.active{
+  /*background: #ff4b1f;  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(60deg, #ab47bc, #7b1fa2);
+margin-left: -2px;
+margin-right: -2px;
+  border-radius: 10px;
+  color: white;
+}
+#tabsign a{
+  color: #ab47bc;
+}
+.btt{
+    background: linear-gradient(60deg, #ab47bc, #7b1fa2);
+}
+</style>
+<div class="row2">
+
+
+  <ul id="tabsign" class="tabs tabs-fixed-width">
+     <li class="tab col s6"><a href="#test-swipe-1"> Sign In</a></li>
+     <li class="tab col s6"><a class="active" href="#test-swipe-2">Sign Up</a></li>
+
+   </ul>
+   <br>
+<div id="test-swipe-1">
+  <div class="card-panel1 z-depth-4">
+    <h5 class="white-text center-align">SIGN IN</h5>
+    <div class="center-align">
+      <a class="waves-effect waves-light btn transparent"><i class="fa fa-twitter"></i></a>
+      <a class="waves-effect waves-light btn transparent"><i class="fa fa-facebook-square"></i></a>
+      <!-- <a class="waves-effect waves-light btn transparent"><i class="fa fa-google-plus"></a> -->
+      </div>
+    </div>
+    <form class="col s12">
+      <div class="row1">
+
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="name" type="text" class="validate">
+          <label for="name"data-error="wrong" data-success="right">Username</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">email</i>
+          <input id="email" type="email" class="validate">
+          <label for="email"data-error="wrong" data-success="right">Email</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock_outline</i>
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+        <br>
+        <div class="">
+          <input type="checkbox" id="checksubmit" />
+          <label for="checksubmit">Remember me</label>
+        </div>
+        <br>
+        <!-- <br> -->
+        <button class="btn waves-effect waves-light purple darken-3 right btt" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+        <br>
+      </div>
+    </form>
+    </div>
+
+    <div id="test-swipe-2">
+      <div class="card-panel1 purple darken-3 z-depth-4">
+        <h5 class="white-text center-align">SIGN UP</h5>
+        <div class="center-align">
+          <a class="waves-effect waves-light btn transparent"><i class="fa fa-twitter"></i></a>
+          <a class="waves-effect waves-light btn transparent"><i class="fa fa-facebook-square"></i></a>
+          <!-- <a class="waves-effect waves-light btn transparent"><i class="fa fa-google-plus"></a> -->
+          </div>
+        </div>
+        <form class="col s12">
+          <div class="row1">
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="name" type="text" class="validate">
+              <label for="name"data-error="wrong" data-success="right">Username</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input id="email" type="email" class="validate">
+              <label for="email"data-error="wrong" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock_outline</i>
+              <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock_outline</i>
+              <input id="password" type="password" class="validate">
+          <label for="password">Confirm Password</label>
+            </div>
+            <br>
+            <div class="">
+              <input type="checkbox" id="checksubmit" />
+              <label for="checksubmit">Remember me</label>
+            </div>
+            <br>
+            <!-- <br> -->
+            <button class="btn waves-effect waves-light purple darken-3 right btt" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+            <br>
+          </div>
+        </form>
+        </div>
+  </div>
