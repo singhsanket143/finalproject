@@ -49,126 +49,119 @@
     <div class="card-panel1 z-depth-4">
       <h5 class="white-text center-align">SIGN IN</h5>
       <div class="center-align">
+        <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
         <a class="waves-effect waves-light btn transparent"><i class="fa fa-twitter"></i></a>
-        <a class="waves-effect waves-light btn transparent"><i class="fa fa-facebook-square"></i></a>
+        <%= link_to ('<i class="fa fa-facebook-square"></i>').html_safe, omniauth_authorize_path(resource_name, :facebook),class:"waves-effect waves-light btn transparent"%><br />
+        <% end -%>
+        <% end -%>
         <!-- <a class="waves-effect waves-light btn transparent"><i class="fa fa-google-plus"></a> -->
       </div>
     </div>
- <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <form class="col s12">
       <div class="row1">
 
         <div class="input-field col s12">
           <i class="material-icons prefix">account_circle</i>
-          <input id="name" type="text" class="validate">
+          <input type="text" class="validate">
 
-          <label for="name"data-error="wrong" data-success="right">Username</label>
+          <label for="name">Username</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate">
-        <%= f.email_field :email, autofocus: true%>
-          <label for="email"data-error="wrong" data-success="right">Email</label>
+          <!-- <input id="email" type="email" class="validate"> -->
+          <%= f.email_field :email, autofocus: true, class:"validate"%>
+          <label for="user_email", class="">Email</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">lock_outline</i>
-          <input id="password" type="password" class="validate">
-            <%= f.password_field :password, autocomplete: "off" %>
-          <label for="password">Password</label>
+          <!-- <input id="password" type="password" class="validate"> -->
+          <%= f.password_field :password, autocomplete: "off", class:"validate" %>
+          <label for="user_password">Password</label>
         </div>
         <br>
         <div class="">
-          <input type="checkbox" id="checksubmit" />
-          <label for="checksubmit">Remember me</label>
+          <!-- <input type="checkbox" id="checksubmit" /> -->
+          <!-- <label for="checksubmit">Remember me</label> -->
           <% if devise_mapping.rememberable? -%>
-                  <br><br>
-                  <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
 
-              <% end -%></p>
-            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-            <% end -%>
-            <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-                <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-            <% end -%>
-            <%- if devise_mapping.omniauthable? %>
-                <%- resource_class.omniauth_providers.each do |provider| %>
-                    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, :facebook)%><br />
-                <% end -%>
-            <% end -%>
+          <%= f.check_box :remember_me %>
+          <label for="user_remember_me">Remember me</label>
+          <!-- <%= f.label :remember_me %> -->
+
+          <% end -%></p>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+          <% end -%>
+          <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+          <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+          <% end -%>
+
         </div>
         <br>
-        <!-- <br> -->
-        <button class="btn waves-effect waves-light purple darken-3 right btt form-btn" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-        <br>
-      </div>
-    </form>
+        <button class="btn waves-effect waves-light purple darken-3 right btt" type="submit" name="action">
+          <i class="material-icons right">send</i>SUBMIT</button>
+          <br>
+        </div>
+      </form>
       <%end%>
-  </div>
+    </div>
 
-  <div id="test-swipe-2">
-    <div class="card-panel1 purple darken-3 z-depth-4">
-      <h5 class="white-text center-align">SIGN UP</h5>
-      <div class="center-align">
-        <a class="waves-effect waves-light btn transparent"><i class="fa fa-twitter"></i></a>
-        <a class="waves-effect waves-light btn transparent"><i class="fa fa-facebook-square"></i></a>
-        <!-- <a class="waves-effect waves-light btn transparent"><i class="fa fa-google-plus"></a> -->
+    <div id="test-swipe-2">
+      <div class="card-panel1 purple darken-3 z-depth-4">
+        <h5 class="white-text center-align">SIGN UP</h5>
+        <div class="center-align">
+          <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+          <a class="waves-effect waves-light btn transparent"><i class="fa fa-twitter"></i></a>
+          <%= link_to ('<i class="fa fa-facebook-square"></i>').html_safe, omniauth_authorize_path(resource_name, :facebook),class:"waves-effect waves-light btn transparent"%><br />
+          <% end -%>
+          <% end -%>
+          <!-- <a class="waves-effect waves-light btn transparent"><i class="fa fa-google-plus"></a> -->
+        </div>
+      </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <%= devise_error_messages! %>
+      <form class="col s12">
+        <div class="row1">
+
+          <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <!-- <input id="name" type="text" class="validate"> -->
+            <%=f.text_field :name, autofocus: true,class:"validate"%>
+            <label for="user_name">Username</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <!-- <input id="email" type="email" class="validate"> -->
+            <%= f.email_field :email, autofocus: true,class:"validate"%>
+
+            <label for="user_email">Email</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <!-- <input id="password" type="password" class="validate"> -->
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off", class:"validate"%>
+            <label for="user_password">Password</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <!-- <input id="password" type="password" class="validate"> -->
+            <%= f.password_field :password_confirmation, autocomplete: "off", class:"validate" %>
+            <label for="user_password">Confirm Password</label>
+          </div>
+          <br>
+
+          <button class="btn waves-effect waves-light purple darken-3 right btt" type="submit" name="action">
+            <i class="material-icons right">send</i>SUBMIT</button>
+            <br>
+          </div>
+        </form>
+        <%end%>
       </div>
     </div>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-        <%= devise_error_messages! %>
-    <form class="col s12">
-      <div class="row1">
-
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-           <!-- <input id="name" type="text" class="validate"> -->
-        <%=f.text_field :name, autofocus: true, id: "name",class:"validate"%>
-          <label for="name"data-error="wrong" data-success="right">Username</label>
-        </div>
-        <div class="input-field col s12">
-          <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate">
-          <%= f.email_field :email, autofocus: true, id:"email",class:"validate"%>
-
-          <label for="email"data-error="wrong" data-success="right">Email</label>
-        </div>
-        <div class="input-field col s12">
-          <i class="material-icons prefix">lock_outline</i>
-          <input id="password" type="password" class="validate">
-          <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "off"%>
-          <label for="password">Password</label>
-        </div>
-        <div class="input-field col s12">
-          <i class="material-icons prefix">lock_outline</i>
-          <input id="password" type="password" class="validate">
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          <label for="password">Confirm Password</label>
-        </div>
-        <br>
-        <div class="">
-          <input type="checkbox" id="checksubmit" />
-          <label for="checksubmit">Remember me</label>
-        </div>
-        <br>
-        <!-- <br> -->
-        <input type="submit"
-                   class="btn waves-effect waves-light purple darken-3 right btt"
-                   value="Sign Up"
-                   name="action"/>
-        <!-- <button class="btn waves-effect waves-light purple darken-3 right btt" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button> -->
-        <br>
-      </div>
-    </form>
-    <%end%>
-  </div>
-</div>
