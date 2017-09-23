@@ -80,47 +80,46 @@
           <%= link_to ('<i class="material-icons right">delete</i>').html_safe, answer, method: :delete, data: {confirm: "Are you sure?"}%>
 
           <% end %>
-          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Comment</a>
 
+
+        </div>
+
+      </div>
+      </div>
+    </div>
+
+
+  </div>
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <div id="comments">
+        <% @commentfeed.each do |comment| %>
+        <%= render 'comment' , comment: comment %>
+        <% end %>
+
+      </div>
+
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      <div class="createComment">
+         <%= form_for @comment, :url => comments_path(answer_id:answer.id), remote: true do |task|%>
+            <%= task.label :content %><br>
+            <%= task.text_area :content %><br>
+            <div class="actions">
+              <%= task.submit id: 'create_comment_submit', class:"modal-action modal-close waves-effect waves-green btn-flat"%>
+            </div>
+            <% end %>
+            <% if @comment.errors.any? %>
+            <% @comment.errors.full_messages.each do |message| %>
+                <%= message %>
+              <% end %>
+            <% end %>
+      </div>
+
     </div>
   </div>
-        </div>
-
-      </div>
-      </div>
-    </div>
-  </div>
-    <div class="createComment">
-     <%= form_for @comment, :url => comments_path(answer_id:answer.id), remote: true do |task|%>
-        <%= task.label :content %><br>
-        <%= task.text_area :content %><br>
-        <div class="actions">
-          <%= task.submit id: 'create_comment_submit'%>
-        </div>
-        <% end %>
-        <% if @comment.errors.any? %>
-        <% @comment.errors.full_messages.each do |message| %>
-            <%= message %>
-          <% end %>
-        <% end %>
-  </div>
-
-
-  <div id="comments">
-    <% @commentfeed.each do |comment| %>
-    <%= render 'comment' , comment: comment %>
-    <% end %>
-  
-  </div>
-
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
   <!-- <script type="text/javascript">

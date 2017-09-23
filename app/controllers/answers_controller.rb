@@ -17,7 +17,6 @@ class AnswersController < ApplicationController
         @answer=Answer.find(params[:id])
         @comment = Comment.new(answer_id: params[@answer.id])
         @commentfeed=@answer.commentfeed @answer.id
-      
 
       }
       format.js {}

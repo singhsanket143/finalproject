@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @question=Question.where(:user_id => current_user.id)
       @answer=Answer.where(:user_id => current_user.id)
+      @followers=current_user.followers(User)
+
     # byebug
   end
 
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
     respond_to do |format|
 
         format.js{  }
-      
+
     end
   end
   def update

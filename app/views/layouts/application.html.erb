@@ -118,8 +118,8 @@
             <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
             <li class="divider"></li>
             <%else%>
-         <li><a class="waves-effect waves-light btn modal-trigger white-text" href="#modal7">sign in</a></li>
-            <li><a class="waves-effect waves-light btn modal-trigger white-text" href="#modal7">sign up</a></li> 
+         <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign in</a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign up</a></li>
 
             <%end%>
           </ul>
@@ -128,7 +128,7 @@
         <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">mail</i>Home</a></li>
         <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">person</i>About</a></li>
         <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">android</i> Menu item</a></li>
-        <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">call</i>Contact</a></li>
+        <li class="white"><a href='/users_list' class="waves-effect waves-blue"><i class="material-icons">call</i>Users</a></li>
         <li class="white"><div class="divider"></div></li>
       </ul>
       <a href="#" class="brand-logo">Logo</a>
@@ -164,7 +164,7 @@
         </li>
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href='/users_list'>Users</a></li>
 
         <%if user_signed_in?%>
         <li><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></li>

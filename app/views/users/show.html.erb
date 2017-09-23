@@ -251,7 +251,11 @@ color:#fff;
                 <%end%>
 
           </div>
-          <div id="follow-swipe-3" class="col s12 green">Test 3</div>
+          <div id="follow-swipe-3" class="col s12 green">
+              <%@followers.each do |f|%>
+              <%= f.email%>
+              <%end%>
+          </div>
           <div id="profile-swipe-4" class="col s12">
               <%= render :partial => 'users/edit'%>
             </div>

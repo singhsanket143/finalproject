@@ -61,11 +61,9 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <form class="col s12">
       <div class="row1">
-
         <div class="input-field col s12">
           <i class="material-icons prefix">account_circle</i>
           <input type="text" class="validate">
-
           <label for="name">Username</label>
         </div>
         <div class="input-field col s12">
@@ -85,11 +83,9 @@
           <!-- <input type="checkbox" id="checksubmit" /> -->
           <!-- <label for="checksubmit">Remember me</label> -->
           <% if devise_mapping.rememberable? -%>
-
           <%= f.check_box :remember_me %>
           <label for="user_remember_me">Remember me</label>
           <!-- <%= f.label :remember_me %> -->
-
           <% end -%></p>
           <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
           <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
@@ -97,17 +93,15 @@
           <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
           <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
           <% end -%>
-
         </div>
         <br>
-        <button class="btn waves-effect waves-light purple darken-3 right btt" type="submit" name="action">
+        <button class="btn waves-effect waves-light purple darken-3 right btt white-text" type="submit" name="action">
           <i class="material-icons right">send</i>SUBMIT</button>
           <br>
         </div>
       </form>
       <%end%>
     </div>
-
     <div id="test-swipe-2">
       <div class="card-panel1 purple darken-3 z-depth-4">
         <h5 class="white-text center-align">SIGN UP</h5>
@@ -122,11 +116,9 @@
         </div>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
       <%= devise_error_messages! %>
       <form class="col s12">
         <div class="row1">
-
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
             <!-- <input id="name" type="text" class="validate"> -->
@@ -137,7 +129,6 @@
             <i class="material-icons prefix">email</i>
             <!-- <input id="email" type="email" class="validate"> -->
             <%= f.email_field :email, autofocus: true,class:"validate"%>
-
             <label for="user_email">Email</label>
           </div>
           <div class="input-field col s12">
@@ -156,8 +147,7 @@
             <label for="user_password">Confirm Password</label>
           </div>
           <br>
-
-          <button class="btn waves-effect waves-light purple darken-3 right btt" type="submit" name="action">
+          <button class="btn waves-effect waves-light purple darken-3 right btt white-text" type="submit" name="action">
             <i class="material-icons right">send</i>SUBMIT</button>
             <br>
           </div>

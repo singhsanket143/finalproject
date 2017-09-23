@@ -101,6 +101,7 @@
 
     <% @answerfeed.each do |answer| %>
      <div class="col s12 m12 l12">
+       <%@comment = Comment.new(answer_id: params[answer.id])%>
        <% @commentfeed= answer.commentfeed answer.id %>
     <%= render 'answer' , answer: answer %>
 
@@ -109,6 +110,7 @@
 </div>
 
 </div>
+
  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
 <!-- <script type="text/javascript">

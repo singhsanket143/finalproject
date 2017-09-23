@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { sessions: "sessions", registrations: "registrations",:omniauth_callbacks => "omniauth_callbacks" }
   root to: "home#index"
   resources :users,only: [:show,:edit,:update]
-  get '/users'=>'home#users'
+  get '/users_list'=>'home#users_list'
 
   resources :questions do
     post 'like',   to: 'socializations#like'
