@@ -47,6 +47,7 @@
               <%end%>
 
               <ul id="profile-dropdown" class="dropdown-content">
+
                 <li><a href="#"><i class="material-icons">person</i>Profile</a></li>
                 <li><a href="#"><i class="material-icons">settings</i>Setting</a></li>
                 <li><a href="#"><i class="material-icons">help</i>Help</a></li>
@@ -105,7 +106,7 @@
             <li><a class="dropdown-button white-text" data-activates="dropdown2"><i class="material-icons white-text ">person</i>ProfileD<i class="material-icons right white-text"style="margin-right:0;">arrow_drop_down</i></a></li>
           </ul>
           <ul id="dropdown2" class="dropdown-content white-text">
-            <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">person</i>Profile</a></li>
+            <li><%= link_to ('<i class="material-icons">person</i>Profile').html_safe,current_user%></li>
             <li class="divider"></li>
             <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">settings</i>Settings</a></li>
             <li class="divider"></li>
@@ -117,8 +118,8 @@
             <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
             <li class="divider"></li>
             <%else%>
-            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign in</a></li>
-            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign up</a></li>
+         <li><a class="waves-effect waves-light btn modal-trigger white-text" href="#modal7">sign in</a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger white-text" href="#modal7">sign up</a></li> 
 
             <%end%>
           </ul>
@@ -136,11 +137,19 @@
         <%if user_signed_in?%>
         <li><a href="#"class="dropdown-button" data-activates="dropdown2"><div class="col s4">
           <!-- profile image -->
-          <img src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" alt="" class="circle responsive-img valign profile-image" width="48px" height="48px">
-        </div></a></li>
-        <%=link_to(avatar_for(current_user,size: 35),current_user)%>
-        <%end%>
+          <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 25)%></div>
 
+        </div></a></li>
+
+        <%else%>
+
+        <li><a href="#"class="dropdown-button" data-activates="dropdown2"><div class="col s4">
+          <!-- profile image -->
+          <img src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" alt="" class="circle responsive-img valign profile-image" width="48px" height="48px">
+
+    </div></a></li>
+        <!-- -->
+        <%end%>
 
       </ul>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -200,6 +209,7 @@
     $('#modal7').modal('open');
     $('.trigger-modal').modal();
     $('#modal7').modal('close');
+
   });
 
 
