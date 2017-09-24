@@ -12,7 +12,7 @@
 
   def like
     @question=Question.find(params[:question_id])
-    like=Like.where(likeable_type: "Question",liker_id: current_user.id).first
+    like=Like.where(likeable_type: "Question",liker_id: current_user.id,likeable_id: @question.id).first
     if like
       current_user.toggle_like!(@socializable)
       @is_liked=false
