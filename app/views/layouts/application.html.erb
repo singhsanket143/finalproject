@@ -180,12 +180,16 @@
     </div>
   </nav>
   <br><br>
-  <ul id="dropdown1" class="dropdown-content">
+  <% if user_signed_in?%>
+  <ul id="dropdown1" class="dropdown-content" data-behaviour="notifications">
+    <div data-behaviour="notification-items">
     <li><a href="#!">one</a></li>
     <li><a href="#!">two</a></li>
     <li class="divider"></li>
     <li><a href="#!">three</a></li>
+    </div>
   </ul>
+    <%end%>
   <div class="container">
     <div id="modal7" class="modal">
       <div class="modal-content">
@@ -215,6 +219,29 @@
 
   </script>
 
+    <script type="text/javascript" charset="utf-8">
+        $.ajax({
+            url: '/notifications.json',
+            success: function(data){
+                console.log("****");
+                console.log(data[1].notifiable.type);
+                console.log("****");
+                var result=data;
+                var notificationList=document.getElementById('dropdown1');
+                for(var i=0;i<data.length;i++){
+                    var liElement = document.createElement('li');
+                    notificationList.append(liElement);
+                    liElement.append(data[i].actor+data[i].action+data[i].notifiable.type);
+//                    liElement.append(data[i].notifiable.type);
+                }
 
+            },
+            error: function(){
+                console.log("some error");
+                console.log(arguments);
+            }
+
+        });
+    </script>
 </body>
 </html>

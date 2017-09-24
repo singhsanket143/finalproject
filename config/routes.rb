@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :comments
   resources :answers
   resources :questions
-
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
   get 'home/index'
 
   devise_for :users, :controllers => { sessions: "sessions", registrations: "registrations",:omniauth_callbacks => "omniauth_callbacks" }
