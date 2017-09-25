@@ -121,7 +121,12 @@ div.card.ques div.card-action a {
               <%= link_to ('<i class="material-icons">comment</i>').html_safe, question ,params[id: question.id]%>
               <%= link_to('follow', question_follow_path(question), remote:true,method: :post) %>
               <div class="right">
-                <%= link_to('Like', question_like_path(question), remote:true,method: :post ,class: "like" ) %>
+                <% if question.like_string(current_user.id,question.id)== true%>
+                    <%= link_to ('<i class="material-icons right" >favorite</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
+                <%else%>
+                    <%= link_to ('<i class="material-icons right" >favorite_border</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
+                <%end%>
+
                 <%if can? :update,question%>
                 <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(question) %>
                 <%end%>

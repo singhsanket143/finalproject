@@ -19,9 +19,9 @@ class Question < ActiveRecord::Base
   end
   def like_string user_id,question_id
     if (liked_by user_id,question_id)
-      return "UnLike"
+      return true
     else
-      return "Like"
+      return false
     end
 
 
