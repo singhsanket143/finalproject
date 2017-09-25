@@ -10,6 +10,19 @@ div.card.ques {
   margin: 40px auto 40px;
   background-color: #ffffff;
   border-radius: 2px;
+
+  /*display: inline-block;*/
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: translateZ(3);
+  /*box-shadow: 0 0 1px rgba(0, 0, 0, 0);*/
+}
+
+div.card.ques:hover {
+
+  box-shadow: 0 12px 12px rgba(0, 0, .6, .6);
+
 }
 div.card.ques div.card-title{
   padding: 16px;
@@ -48,6 +61,11 @@ div.card.ques div.card-title div.text.small h1{
 
 div.card.ques div.supporting_text {
   /*padding: 16px;*/
+}
+
+div.card.ques div.supporting_text h3{
+  padding-left: 16px;
+    font-size: 17px;
 }
 div.card.ques div.supporting_text p {
   font-size: 14px;
@@ -111,7 +129,7 @@ div.card.ques div.card-action a {
           </div>
 
         </div>
-        <div class="supporting_text">
+        <div class="supporting_text text small">
           <h3><%= question.title %></h3>
           <p><%= question.content %></p>
 

@@ -14,13 +14,34 @@
  *= require_self
  */
 body{
+  background-color: #FAFAFA;
 
   /*background: #C9CCD3;
   background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
   background-blend-mode: lighten;*/
 
- background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+ /*background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);*/
  /*
   background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);*/
-  
+
+}
+nav .nav-wrapper{
+
+padding-left: 130px;
+padding-right: 110px;
+padding-top: 5px;
+padding-bottom: 5px;
+  height: 75px;
+}
+.input-field input[type="search"]{
+  background-color: white;
+
+}
+nav .input-field label i {
+    color: rgba(53, 38, 38, 0.7);
+    transition: color .3s;
+}
+nav ul#nav-mobile.right li{
+  margin-left: 15px;
+  margin-right: 15px;
 }
