@@ -67,7 +67,6 @@ end
       format.html { redirect_to '/', notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
-
   end
 
   private

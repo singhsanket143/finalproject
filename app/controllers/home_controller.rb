@@ -4,7 +4,7 @@ class HomeController < ApplicationController
       respond_to do |format|
         format.html{
           @question = Question.new
-          @feed=current_user.feed
+          @feed=current_user.feed.paginate(:per_page => 4,:page=>params[:page])
         }
         format.js{  }
       end
