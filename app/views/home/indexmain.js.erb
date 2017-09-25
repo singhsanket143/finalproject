@@ -1,0 +1,6 @@
+<% @trendingfeed.each do |question| %>
+$('#questions').append("<%= escape_javascript (render 'home/question', question: question) %>");
+<% end %>
+<% @latestfeed.each do |question| %>
+$('#questions').append("<%= escape_javascript (render 'home/question', question: question) %>");
+<% end %>

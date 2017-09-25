@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   devise_for :users, :controllers => { sessions: "sessions", registrations: "registrations",:omniauth_callbacks => "omniauth_callbacks" }
-  root to: "home#index"
+  root to: "home#indexmain"
   resources :users,only: [:show,:edit,:update]
   get '/users_list'=>'home#users_list'
 

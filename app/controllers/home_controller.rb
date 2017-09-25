@@ -9,6 +9,17 @@ class HomeController < ApplicationController
         format.js{  }
       end
   end
+  def indexmain
+      respond_to do |format|
+        format.html{
+          @question = Question.new
+          @feed=current_user.feed
+          @latestfeed=current_user.latestfeed
+          @trendingfeed=current_user.trendingfeed
+        }
+        format.js{  }
+      end
+  end
     def users_list
       @users=User.all
     end

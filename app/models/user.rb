@@ -17,7 +17,12 @@ class User < ActiveRecord::Base
   def feed
     Question.includes(:user).order(created_at: :desc)
   end
-
+  def trendingfeed
+  Question.last(6).reverse
+  end
+  def latestfeed
+  Question.last(6).reverse
+  end
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
