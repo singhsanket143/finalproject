@@ -13,24 +13,80 @@
  *= require_tree .
  *= require_self
  */
-body{
+
+
+ body{
   background-color: #FAFAFA;
 
   /*background: #C9CCD3;
   background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
   background-blend-mode: lighten;*/
 
- /*background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);*/
+  /*background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);*/
  /*
-  background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);*/
+ background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);*/
 
 }
+/*#dropdown1{
+  width: 170px;
+top:75px;
+}*/
+/*a.dropdown-button.active ul#dropdown1.noti.dropdown-content.active{
+   width: 170px;
+top:75px;
+}
+
+*/
+/*noti.dropdown-content.active{
+  min-width: 169px; top: 65px; position: absolute; left: 1057px; opacity: 1; display: block;
+
+}*/
+#dropdown1.dropdown-content.active{
+  min-width: 300px;
+  top:70px;
+}
+/*ul#dropdown1.noti.dropdown-content.active{
+width: 170px;
+top:75px;
+}*/
+.card.small.tag {
+    height: 300px;
+    width: 25%;
+    overflow: scroll;
+}
+#tag_cloud {
+  padding: 2px;
+
+}
+
+#tag_cloud .chip{
+  font-size: inherit;
+  line-height: 1.6em;
+  padding-top: 5px;
+  
+  height: auto;
+}
+#tag_cloud .chip a.sml{
+font-size: 0.8em; 
+  
+}
+#tag_cloud .chip a.med{
+
+  font-size: 1.2em; 
+
+}
+#tag_cloud .chip a.lar{
+
+ font-size: 1.8em; 
+}
+
+
 nav .nav-wrapper{
 
-padding-left: 130px;
-padding-right: 110px;
-padding-top: 5px;
-padding-bottom: 5px;
+/*  padding-left: 130px;
+  padding-right: 110px;*/
+  padding-top: 5px;
+  padding-bottom: 5px;
   height: 75px;
 }
 .input-field input[type="search"]{
@@ -38,8 +94,8 @@ padding-bottom: 5px;
 
 }
 nav .input-field label i {
-    color: rgba(53, 38, 38, 0.7);
-    transition: color .3s;
+  color: rgba(53, 38, 38, 0.7);
+  transition: color .3s;
 }
 nav ul#nav-mobile.right li{
   margin-left: 15px;

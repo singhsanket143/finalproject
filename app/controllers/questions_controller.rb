@@ -77,6 +77,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :content, :user_id)
+      params.require(:question).permit(:title, :content, :user_id, :tag_list)
     end
 end

@@ -183,16 +183,17 @@
   </nav>
   <br><br>
   <% if user_signed_in?%>
-  <ul id="dropdown1" class="dropdown-content" data-behaviour="notifications">
+ <!--  <ul id="dropdown1" class="noti dropdown-content active" data-behaviour="notifications" style="width: 169px; top: 65px; position: absolute; left: 1057px; opacity: 1; display: block;"> -->
+ <ul id="dropdown1" class="noti dropdown-content" data-behaviour="notifications" style="width: 170px;top: 75px;"> 
     <div data-behaviour="notification-items">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
+    <li class="noti"><a href="#!">one</a></li>
+    <li class="noti"><a href="#!">two</a></li>
     <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <liclass="noti"><a href="#!">three</a></li>
     </div>
   </ul>
     <%end%>
-  <div class="container">
+  <div class="container" id="mithu">
     <div id="modal7" class="modal">
       <div class="modal-content">
         <%= render :partial => 'layouts/modal'%>
@@ -201,7 +202,34 @@
         <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
       </div> -->
     </div>
-    <%= yield %>
+
+<div class="hide-on-med-and-down">
+       <div class="col s12 m12 l4">
+       <div class='card small tag left'>
+      <div id="tag_cloud">
+    
+        <% tag_cloud Question.tag_counts, %w[sml med lar] do |tag, css_class| %>
+   <div class="chip">
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <i class="close material-icons">close</i>
+  </div>
+    
+  <% end %>
+    
+</div>
+    </div>
+    </div>
+    </div>
+   
+   
+    <div class="row">
+       <div class="col s12 m12 l8">
+      <%= yield %>
+    </div>
+    </div>
+   
+
+    
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
@@ -222,6 +250,7 @@
   </script>
 
     <script type="text/javascript" charset="utf-8">
+    $(".dropdown-button").dropdown({ hover: true, data-constrainwidth="false"});
         $.ajax({
             url: '/notifications.json',
             success: function(data){

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tags/:tag', to: 'home#index', as: :tag
+  resources :questions
   resources :subtrends
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

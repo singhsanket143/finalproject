@@ -134,6 +134,12 @@ div.card.ques div.card-action a {
           <p><%= question.content %></p>
 
           <br>
+         
+
+<p>Tags:  <%= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+
+
+           <br> 
           <div class="row">
             <div class="card-action">
               <%= link_to ('<i class="material-icons">comment</i>').html_safe, question ,params[id: question.id]%>
