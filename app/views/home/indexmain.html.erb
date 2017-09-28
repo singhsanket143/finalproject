@@ -5,8 +5,10 @@
   <title>Home</title>
 <style media="screen">
   .card.trend, .card.latest{
-    height: 250px;
+    height: 360px;
+overflow-x: hidden;
     overflow-y: scroll;
+    border: 1px solid #e2e2e2;
 
   }
 </style>
@@ -53,7 +55,7 @@
   </div>
   <!-- <div class="col s12"> -->
   <!-- <div class="container"> -->
-  <div class="card z-depth-4 grey lighten-4 trend">
+  <div class="card z-depth-0 grey lighten-4 trend">
     <div id="questions">
       <div class="row">
         <% @trendingfeed.each do |question| %>
@@ -65,7 +67,7 @@
 
     </div>
   </div>
-<div class="card z-depth-4 grey lighten-4 latest">
+<div class="card z-depth-0 grey lighten-4 latest">
   <div id="questions">
     <div class="row">
       <% @latestfeed.each do |question| %>

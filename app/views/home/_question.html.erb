@@ -5,12 +5,14 @@
 div.card.ques {
   font-family: 'Roboto', sans-serif;
   display: block;
-  width: auto;
+  width: 90%;
   height:auto;
-  margin: 40px auto 40px;
+  margin: 20px auto 40px;
   background-color: #ffffff;
   border-radius: 2px;
-
+overflow-y: scroll;
+overflow-wrap: normal;
+overflow-x: hidden;
   /*display: inline-block;*/
   transition-duration: 0.3s;
   transition-property: box-shadow;
@@ -119,7 +121,7 @@ div.card.ques div.card-action a {
 </head>
 <div class="question">
   <div class="userDetail">
-    <div class="col s12 m6 l6">
+    <!-- <div class="col s12 m6 l6"> -->
       <div class="card ques" elevation="2">
         <div class="card-title">
           <figure elevation="1"></figure>
@@ -133,13 +135,13 @@ div.card.ques div.card-action a {
           <h3><%= question.title %></h3>
           <p><%= question.content %></p>
 
-          <br>
+        
          
 
 <p>Tags:  <%= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
 
-           <br> 
+         
           <div class="row">
             <div class="card-action">
               <%= link_to ('<i class="material-icons">comment</i>').html_safe, question ,params[id: question.id]%>
@@ -162,6 +164,6 @@ div.card.ques div.card-action a {
           </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </div>
