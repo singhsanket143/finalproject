@@ -35,4 +35,7 @@ end
 def users_list
   @users=User.all
 end
+def tags_list
+  
+end
 end

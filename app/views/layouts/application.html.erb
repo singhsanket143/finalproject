@@ -202,13 +202,20 @@
         <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
       </div> -->
     </div>
+      <div id="modaltag" class="modal">
+      <div class="modal-content">
+        <%= render :partial => 'layouts/modaltag'%>
+      </div>
+      <!-- <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      </div> -->
+    </div>
 
 <div class="hide-on-med-and-down">
        <div class="col s12 m12 l4">
        <div class='card small tag left'>
       <div id="tag_cloud">
-    
-        <% tag_cloud Question.tag_counts, %w[sml med lar] do |tag, css_class| %>
+    <% tag_cloud Question.tag_counts.order('count DESC').limit(10), %w[sml med lar] do |tag, css_class| %>
            <% if tag.name.length <= 11 %>
    <div class="chip">
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
@@ -218,6 +225,10 @@
   <% end %>
     
 </div>
+<div class="card-action center">
+              <a class="waves-effect waves-light btn modal-trigger" href="#modaltag">SEE ALL</a>
+              <!-- <a href="./tags_list">SEE ALL</a> -->
+            </div>
     </div>
     </div>
     </div>
@@ -228,7 +239,7 @@
       <%= yield %>
     </div>
     </div>
-   
+ 
 
     
   </div>
@@ -244,6 +255,10 @@
     $('#modal7').modal('open');
     $('.trigger-modal').modal();
     $('#modal7').modal('close');
+    $('#modaltag').modal();
+    $('#modaltag').modal('open');
+ 
+    $('#modaltag').modal('close');
 
   });
 

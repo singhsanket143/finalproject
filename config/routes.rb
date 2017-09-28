@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root to: "home#indexmain"
   resources :users,only: [:show,:edit,:update]
   get '/users_list'=>'home#users_list'
+ get '/tags_list'=>'home#tags_list'
 
   resources :questions do
     post 'like',   to: 'socializations#like'
