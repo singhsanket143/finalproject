@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "ckeditor"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
@@ -29,7 +29,7 @@ gem 'cancancan', '~> 2.0'
 gem 'acts-as-taggable-on'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem "resque"
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'carrierwave', '~> 1.0'

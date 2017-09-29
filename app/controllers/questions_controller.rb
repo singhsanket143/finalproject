@@ -18,31 +18,30 @@ def show
     }
     format.js{  }
   end
-
 end
   # GET /questions/1/edit
   def edit
   end
 
-
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
-    @question.user_id = current_user.id
+  @question = Question.new(question_params)
+  @question.user_id = current_user.id
 
-    respond_to do |format|
-      if @question.save
-         UserMailer.added_question(current_user,@question).deliver_now
-        format.html { redirect_to '/', notice: 'Question was successfully created.' }
-        format.js{  }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render 'home/index' }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+  respond_to do |format|
+    if @question.save
+      Resque.enqueue(QuestionMailer,@question.id,current_user.id)
+
+      format.html { redirect_to '/', notice: 'Question was successfully created.' }
+      format.js{  }
+      format.json { render :show, status: :created, location: @question }
+    else
+      format.html { render 'home/index' }
+      format.json { render json: @question.errors, status: :unprocessable_entity }
     end
   end
+end
 
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json

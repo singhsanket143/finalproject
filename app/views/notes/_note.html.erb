@@ -1,0 +1,15 @@
+
+      <div class="col s12 m6">
+          <div class="card teal darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Note</span>
+              <p><%= note.user.name %></p>
+               <p><%= note.content %></p>
+            </div>
+            <div class="card-action">
+              <%= link_to 'Edit', edit_note_path(note) %>
+             <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      

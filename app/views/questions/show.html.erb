@@ -80,18 +80,33 @@
 <%= link_to 'Back', 'home/index'%>
 
 <div class="createAnswer">
-  <%= form_for @answer, :url => answers_path(question_id:@question.id), remote: true do |task|%>
-  <%= task.label :content %><br>
-  <%= task.text_area :content %><br>
-  <div class="actions">
-    <%= task.submit id: 'create_answer_submit'%>
-  </div>
-  <% end %>
-  <% if @answer.errors.any? %>
+ 
+
+
+
+<%= form_for @answer, :url => answers_path(question_id:@question.id), remote: true do |task|%>
+
+      <% if @answer.errors.any? %>
   <% @answer.errors.full_messages.each do |message| %>
   <%= message %>
   <% end %>
   <% end %>
+
+  <div class="field">
+    <%= task.label :content %><br>
+  </div>
+  <div>
+    <%= task.cktext_area :content, rows: 10 %>
+  </div>
+  <div class="actions">
+     <%= task.submit id: 'create_answer_submit'%>
+
+  </div>
+<% end %>
+
+
+
+
 </div>
 
 

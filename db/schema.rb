@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927145506) do
+ActiveRecord::Schema.define(version: 20170928164047) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -106,6 +106,15 @@ ActiveRecord::Schema.define(version: 20170927145506) do
 
   add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables"
   add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions"
+
+  create_table "notes", force: :cascade do |t|
+    t.string   "content",    null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "recipient_id"

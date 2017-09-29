@@ -164,8 +164,9 @@
             </div>
           </form>
         </li>
-        <!-- <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li> -->
+
+      <!--   <li><a class="btn tooltipped" data-position="bottom" data-delay="50" data-activates-tooltip="dropdown1">Hover me!</a></li> -->
+        <li><a href="#">About</a></li>
         <li><a href='/users_list'>Users</a></li>
 
         <!-- <%if user_signed_in?%>
@@ -189,7 +190,7 @@
     <li class="noti"><a href="#!">one</a></li>
     <li class="noti"><a href="#!">two</a></li>
     <li class="divider"></li>
-    <liclass="noti"><a href="#!">three</a></li>
+    <li class="noti"><a href="#!">three</a></li>
     </div>
   </ul>
     <%end%>
@@ -233,15 +234,43 @@
     </div>
     </div>
    
-   
+   <%if user_signed_in?%>
+             
+<div class="hide-on-med-and-down">
+       <div class="col s12 m12 l4">
+       <div class='card small note right'>
+    <div class="card-content">
+     <%= Note.where(:user_id => current_user.id).last.content %>
+     <hr>
+     <%= Note.where(:user_id => current_user.id)[-2].content %>
+
+    </div>
+<div class="card-action center">
+              <a class="waves-effect waves-light " href="/notes">SEE ALL</a>
+               <a class="waves-effect waves-light modal-trigger" href="#modaladdnote"> ADD NOTE</a>
+              <!-- <a href="./tags_list">SEE ALL</a> -->
+            </div>
+    </div>
+    </div>
+    </div>
+              <%end%>
+
     <div class="row">
-       <div class="col s12 m12 l8">
+       <div class="col s12 m12 l7">
       <%= yield %>
     </div>
     </div>
  
 
-    
+      <div id="modaladdnote" class="modal">
+      <div class="modal-content">
+        <%= render :partial => 'layouts/modaladdnote'%>
+      </div>
+      <!-- <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      </div> -->
+    </div>
+     
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
@@ -259,6 +288,11 @@
     $('#modaltag').modal('open');
  
     $('#modaltag').modal('close');
+    $('#modaladdnote').modal();
+    $('#modaladdnote').modal('open');
+ 
+    $('#modaladdnote').modal('close');
+     $('.tooltipped').tooltip({delay: 50});
 
   });
 
