@@ -286,10 +286,9 @@
                  <p></p>
                </aside> -->
               <aside class="note-wrap note-blue">
-                <%if Note.all.length > 0%>
-                    <p>  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
-                <hr><%if Note.all.length>=2 %>
-                    <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
+                <p>  <%= Note.where(:user_id => current_user.id).last.content %></p>
+                <hr>
+                <p><%= Note.where(:user_id => current_user.id)[-2].content %>
                 </p>
 
                 <br>
@@ -308,6 +307,8 @@
         </a>
         <ul>
           <li><a href="#modaladdnote" class="btn-floating green"><i class="material-icons">mode_edit</i></a></li>
+
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">delete</i></a></li>
           <li><a href="./notes" class="btn-floating blue"><i class="material-icons">list</i></a></li>
           <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
         </ul>
