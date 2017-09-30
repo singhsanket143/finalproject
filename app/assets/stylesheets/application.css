@@ -142,7 +142,8 @@ padding-left: 15px;
 }
 
 #tag_cloud .chip{
-  font-family: "DejaVu Sans",Verdana, Tahoma, Arial, sans-serif;
+  font-family: 'Capriola, sans-serif';font-size: 12px;
+  /*font-family: "DejaVu Sans",Verdana, Tahoma, Arial, sans-serif;*/
   font-weight: 450;
   font-size: inherit;
   line-height: 1.6em;
