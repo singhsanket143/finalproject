@@ -6,6 +6,8 @@
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Englebert' rel='stylesheet' type='text/css'>
+
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <!--Let browser know website is optimized for mobile-->
@@ -271,23 +273,45 @@
 
   <%if user_signed_in?%>
 
-  <div class="hide-on-med-and-down">
+  <div class="hide-on-med-and-down fixed">
    <div class="col s12 m12 l4">
-     <div class='card small note right'>
-      <div class="card-content">
-       <%= Note.where(:user_id => current_user.id).last.content %>
-       <hr>
-       <%= Note.where(:user_id => current_user.id)[-2].content %>
+     <div class='car1 small note right'>
 
-     </div>
-     <div class="card-action center">
-      <a class="waves-effect waves-light " href="/notes">SEE ALL</a>
-      <a class="waves-effect waves-light modal-trigger" href="#modaladdnote"> ADD NOTE</a>
-      <!-- <a href="./tags_list">SEE ALL</a> -->
-    </div>
+
+
+
+  <div class="wrapper">
+   <!--  <aside class="note-wrap note-yellow">
+      <p></p>
+    </aside> -->
+    <aside class="note-wrap note-blue">
+     <p>  <%= Note.where(:user_id => current_user.id).last.content %></p>
+     <hr>
+     <p><%= Note.where(:user_id => current_user.id)[-2].content %>
+</p>
+
+<br>
+
+
+    </aside>
+  
+  </div>
+
   </div>
 </div>
 </div>
+ <div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a href="#modaladdnote" class="btn-floating green"><i class="material-icons">mode_edit</i></a></li>
+       <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">delete</i></a></li>
+     <li><a href="./notes" class="btn-floating blue"><i class="material-icons">list</i></a></li>
+      <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
+    </ul>
+  </div>
 <%end%>
 
 <div class="row">
