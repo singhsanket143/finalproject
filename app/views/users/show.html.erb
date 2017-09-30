@@ -231,7 +231,7 @@ color:#fff;
              <div class="card red lighten-1 z-depth-4">
                <div class="card-content white-text">
                  <span class="card-title"><%=a.question.title%></span>
-                 <p><%=a.content%></p>
+                 <p><%=raw a.content%></p>
                </div>
                <div class="card-action">
                  <%= link_to 'Show', a ,params[id: a.id]%>
