@@ -1,31 +1,27 @@
 <!-- <div class="row"> -->
 <div class="col l12 m12 s12">
-  <div class="user_list">
-    <ul class="collapsible popout user" data-collapsible="accordion">
-       <li>
-                 <div class="collapsible-header user">
-                   <div class="">
-                      <!-- <div class="circle responsive-img valign profile-image"> -->
-                     <div class=" circle fakeimage">
-                      <%=avatar_for(current_user,size: 50)%>
-                     </div>
-                     <!-- </div> -->
-                     <!-- <p id="head"><i class="material-icons right">date_range</i>01/21/15</p> -->
-                     <!-- <i class="material-icons left">person</i> -->
-                     <p id="head"><%=user.email%></p>
-                   </div>
-
-                 
-                    <div class="right" style="padding: 10px;">
-                      <%= link_to('follow', user_follow_path(user), remote:true,method: :post) %>
-                    </div>
-             </div>
-                       <div class="collapsible-body user">
-           <p>Material Design aplica principios de objetos reales incluyendo su comportamiento.Material Design aplica principios de objetos reales incluyendo su comportamiento.Material Design aplica principios de objetos reales incluyendo su comportamiento.Material Design aplica principios de objetos reales incluyendo su comportamiento.Material Design aplica principios de objetos reales incluyendo su comportamiento.</p>
-              <br>
- </div>
-       </li>
-     </ul>
-</div>
+  <div class="user-profile">
+    <%=avatar_for(current_user,size: 80)%>
+    <div class="username"><%=user.email%></div>
+    <div class="bio">
+      <%= link_to('follow', user_follow_path(user), remote:true,method: :post) %>
+    </div>
+    <div class="description">
+      I use to design websites and applications
+      for the web.
+    </div>
+    <ul class="data">
+      <li>
+        <span class="entypo-heart"> 127</span>
+      </li>
+      <li>
+        <span class="entypo-eye"> 853</span>
+      </li>
+      <li>
+        <span class="entypo-user"> 311</span>
+      </li>
+    </ul>
+  </div>
 </div>
 <!-- </div> -->
+

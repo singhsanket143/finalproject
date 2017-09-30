@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :notes
   get 'tags/:tag', to: 'home#index', as: :tag
   resources :questions

@@ -28,9 +28,13 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
   @note.user_id = current_user.id
+<<<<<<< HEAD
+=======
+# byebug
+>>>>>>> f5857d98a595a3f8e9b1ab2f436ad531396bdefa
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to '/', notice: 'Note was successfully created.' }
         format.js{}
         format.json { render :show, status: :created, location: @note }
       else
