@@ -85,7 +85,7 @@
         <br>
       </div>
       <div class="card-content grey-text">
-        <p><%= answer.content %></p>
+        <p><%= simple_format(answer.content) %></p>
         <br>
         <div class="row">
           <%= link_to ('<i class="material-icons right">forum</i>').html_safe, answer ,params[id: answer.id]%></button>
