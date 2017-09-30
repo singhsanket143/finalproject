@@ -67,27 +67,35 @@ div.card.ques div.supporting_text {
 }
 
 div.card.ques div.supporting_text h3{
-  padding-left: 16px;
-    font-size: 17px;
+ padding-left: 16px;
+font-size: 17px;
+margin-top: 0;
+margin-bottom: 0;
 }
 div.card.ques div.supporting_text p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 0;
-  padding:  10px 10px 10px 28px;
+ font-size: 18px;
+line-height: 1.5;
+margin: 0;
+padding: 2px 5px 4px 13px;
 }
 div.card.ques div.row{
-  padding: 8px;
+  padding: 1px;
   height: auto;
+  margin-bottom: 0px;
 }
 
+div.card.ques div.card-action {
+  position: relative;
+background-color: inherit;
+border-top: 1px solid rgba(160,160,160,0.2);
+padding: 4px 24px;
+}
 div.card.ques div.card-action div.right {
   float: right;
 }
 div.card.ques div.card-action a {
   color: #757575;
   /*height: 36px;*/
-  color: pink;
   margin: 0;
   margin-right: 0px;
   padding: 0 8px;
@@ -97,6 +105,20 @@ div.card.ques div.card-action a {
   text-transform: uppercase;
   border-radius: 2px;
 }
+html body div#mithu.container div.row div.col.s12.m12.l7 div.card.z-depth-0.grey.lighten-4.trend div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a{
+ color:#949599; 
+}
+html body div#mithu.container div.row div.col.s12.m12.l7 div.card.z-depth-0.grey.lighten-4.trend div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a:hover{
+  color:#0091ea;
+}
+html body div#mithu.container div.row div.col.s12.m12.l7 div.card.z-depth-0.grey.lighten-4.trend div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a i.material-icons{
+  color:#949599;
+}
+html body div#mithu.container div.row div.col.s12.m12.l7 div.card.z-depth-0.grey.lighten-4.trend div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a i.material-icons:hover{
+  color:#0091ea;
+}
+
+
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
     margin-right: 0px;
 }
@@ -126,21 +148,24 @@ div.card.ques div.card-action a {
     <!-- <div class="col s12 m6 l6"> -->
       <div class="card ques" elevation="2">
         <div class="card-title">
-          <figure elevation="1"></figure>
+          <figure elevation="1">
+             <%=avatar_for(current_user,size: 25)%>
+          </figure>
           <div class="text small">
-            <h1 style="font-family: 'Fresca', sans-serif;font-weight: bold;"><%= question.user.name %></h1>
+            <h1 style="font-family: 'Fresca', sans-serif;"><%= question.user.name %></h1>
             <h2><%= time_ago_in_words(question.created_at) unless question.created_at.blank? %> ago</h2>
           </div>
 
         </div>
         <div class="supporting_text text small">
-          <h3 style=" font-family: 'Cantarell, sans-serif';font-size: 22px;"><%= question.title %></h3>
-          <p style="font-family: 'Josefin Slab', serif; font-weight:bold;"><%= question.content %></p>
+          <h3 style=" font-family: 'Cantarell, sans-serif';font-size: 22px;font-weight: bold;"><%= question.title %></h3>
+          <p style="font-family: 'Josefin Slab', serif;"><%= question.content %></p>
 
         
          
 
-<p style=" font-family: 'Capriola, sans-serif';font-size: 14px;">Tags:  <%= raw question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+<p style=" font-family: 'Capriola, sans-serif';font-size: 14px;">Tags:  <%= raw question.tag_list.map { |t| link_to t , tag_path(t) }.join(', ') %></p>
+
 
 
          
