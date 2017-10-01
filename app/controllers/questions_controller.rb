@@ -11,14 +11,27 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html{
         @question=Question.find(params[:id])
+        @questagfeed = []
+        @question.tag_list.each do |tag| 
+          @questagfeed += Question.tagged_with(tag) 
+        end
+    
         @answer = Answer.new(question_id: params[@question.id])
         @answerfeed=@question.answerfeed @question.id
         # @comment = Comment.new(answer_id: params[@answer.id])
         # @commentfeed=@answer.commentfeed @answer.id
+        
 
       }
       format.js{  }
     end
+
+
+
+
+
+
+
   end
   # GET /questions/1/edit
   def edit

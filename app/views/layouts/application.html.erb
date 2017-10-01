@@ -164,7 +164,7 @@
                   <li class="tab"><a href="" class="dropdown-button" data-beloworigin="true" data-activates="dropdown1"><i class="material-icons right">notifications</i>Notifications</a></li>
                   <%end%>
                   <li class="tab"><a href='/users_list'>Users</a></li>
-
+           
                 </ul>
 
 
@@ -255,12 +255,12 @@
         <div class='card small tag left'>
           <div class="card-image">
             <div class="image-inside"></div>
-            <span class="card-title">Trends to Follow</span>
+            <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Trends to Follow</span>
           </div>
           <!--  <h5>Trends to Follow</h5> -->
           <div id="tag_cloud">
             <% tag_cloud Question.tag_counts.order('count DESC').limit(10), %w[sml med lar] do |tag, css_class| %>
-                <% if tag.name.length <= 10 %>
+                <% if tag.name.length <= 11 %>
                     <div class="chip">
                       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
                       <i class="material-icons tagicon">add</i>
@@ -303,7 +303,7 @@
                 <br>
 
                 <div class="fixed-action-btn horizontal">
-                  <a class="btn-floating btn-large red">
+                  <a class="btn-floating btn-large waves-effect waves-light red z-depth-4">
                     <i class="large material-icons">menu</i>
                   </a>
                   <ul>
@@ -316,6 +316,14 @@
                 </div>
               </aside>
             </div>
+
+
+
+            <div class="white">
+              <%= render :partial => 'layouts/sideques'%>
+
+            </div>
+
 
           </div>
         </div>

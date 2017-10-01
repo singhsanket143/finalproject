@@ -28,7 +28,14 @@ class HomeController < ApplicationController
         else
           @feed=current_user.feed
           @latestfeed=current_user.latestfeed
-          @trendingfeed=current_user.trendingfeed
+
+
+          @tftags=Question.tag_counts_on(:tags).order('count desc').limit(5)
+          @trendingfeed=[]
+
+          @tftags.each do |tag| 
+            @trendingfeed += Question.tagged_with(tag) 
+          end
         end
       }
       format.js {}
