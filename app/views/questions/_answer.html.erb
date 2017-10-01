@@ -131,10 +131,10 @@ html body div#mithu.container div.row div.col.s12.m12.l7 div#answers div.row div
      </div>
       
     </div>
-    <div class="card-content grey-text text-darken-3">
+    <div class="card-content grey-text text-darken-3" style="padding-top: 0px; padding-bottom: 5px;">
       <p style="font-family: Lato"><%= raw answer.content %></p>
       <br>
-      <div class="row">
+      <div class="row" style="padding-bottom: 0px;">
         <%= link_to ('<i class="material-icons right">forum</i>').html_safe, answer ,params[id: answer.id]%></button>
         <%if can? :update,answer%>
         <%= link_to ('<i class="material-icons right">create</i>').html_safe, answer %>

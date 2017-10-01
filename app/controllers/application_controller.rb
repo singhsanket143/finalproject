@@ -10,6 +10,23 @@ def addnotes
   @question=Question.new
 
 end
+def sideques
+    @questagfeed = []
+if params[:question_id]
+           @question=Question.find(params[:id])
+      
+        @question.tag_list.each do |tag| 
+          @questagfeed += Question.tagged_with(tag) 
+        end
+        else
+          @tftags=Question.tag_counts_on(:tags).order('count desc').limit(5)
+          @tftags.each do |tag| 
+           @questagfeed += Question.tagged_with(tag) 
+          end
+
+        end
+
+  end
 
   protected
   def configure_permitted_parameters
