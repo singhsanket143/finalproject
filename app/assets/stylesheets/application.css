@@ -261,9 +261,10 @@ margin-left: -15px;
 .image-inside{
   
 
-     background: url("trendinginside.png") no-repeat 9px -6px;
-    height: 134px;
-    margin-left: -0;
+     background: url("5.png") no-repeat 9px 6px;
+    height: 244px;
+    margin-left: 60px;
+    margin-top: 30px;
     width: 200px;
 }
 }
