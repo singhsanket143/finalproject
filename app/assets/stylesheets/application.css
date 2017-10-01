@@ -16,7 +16,7 @@
 
 
  body{
-  background-color: #FAFAFA;
+  background-color: #E6ECF0;
 }
 nav#global{
     height: 70px;
@@ -119,7 +119,7 @@ width: 170px;
 top:75px;
 }*/
 .card.small.tag {
-    height: 345px;
+    height: 500px;
 width: 22%;
 margin-top: 43px;
 padding-left: 15px;
@@ -251,8 +251,22 @@ font-size: 0.8em;
 
 
 
+.card-image{
+   background: url("trending.jpg") no-repeat -39px -59px;
+height: 250px;
+margin-left: -15px;
+}
 
 
+.image-inside{
+  
+
+     background: url("trendinginside.png") no-repeat 9px -6px;
+    height: 134px;
+    margin-left: -0;
+    width: 200px;
+}
+}
 
 
 
