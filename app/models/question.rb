@@ -18,6 +18,13 @@ class Question < ActiveRecord::Base
     Answer.where(question_id: question_id).order(created_at: :desc)
   end
 
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
   def liked_by user_id, question_id
     Like.where(likeable_type: "Question",liker_id: user_id,likeable_id: question_id).length > 0
   end

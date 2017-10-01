@@ -48,11 +48,11 @@
         <!-- search -->
         <div class="left">
           <div id="navsearchbar">
-            <form>
+            <form action="/home/index" method="get">
               <div class="input-field">
-                <input id="search" placeholder="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
+                <!--<input id="search" placeholder="search" type="search" required>--><%= text_field_tag :search, params[:search],:id=>'search',:placeholder=>'Search' %>
+                <!--<label class="label-icon" for="search"><i class="material-icons">search</i></label>-->
+                <!--<i class="material-icons">close</i>-->
               </div>
             </form>
           </div>
@@ -250,7 +250,6 @@
 
 <script>
     $(".button-collapse").sideNav();
-
     $(document).ready(function(){
         $('.dropdown-button').dropdown({
                 inDuration: 300,
@@ -270,18 +269,12 @@
         $('#modal7').modal('close');
         $('#modaltag').modal();
         $('#modaltag').modal('open');
-
         $('#modaltag').modal('close');
         $('#modaladdnote').modal();
         $('#modaladdnote').modal('open');
-
         $('#modaladdnote').modal('close');
         $('.tooltipped').tooltip({delay: 50});
-
-
     });
-
-
 </script>
 
 <script type="text/javascript" charset="utf-8">
@@ -300,13 +293,11 @@
                 liElement.append(data[i].actor+data[i].action+data[i].notifiable.type);
                 //                    liElement.append(data[i].notifiable.type);
             }
-
         },
         error: function(){
             console.log("some error");
             console.log(arguments);
         }
-
     });
 </script>
 </body>

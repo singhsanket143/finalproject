@@ -4,6 +4,10 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
 
+  def index
+    # @question=Question.search(params[:search])
+    # byebug
+  end
   # GET /questions/1  # GET /questions/1.json
 
   # GET /questions/new

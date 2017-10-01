@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   get 'home/index'
-
+  get '/sear',to: 'questions#index'
   devise_for :users, :controllers => { sessions: "sessions", registrations: "registrations",:omniauth_callbacks => "omniauth_callbacks" }
   root to: "home#indexmain"
   resources :users,only: [:show,:edit,:update]
