@@ -74,6 +74,7 @@ cursor: default; }
   <!-- <div class="container"> -->
   <div id="questions">
     <div class="row">
+
       <% @feed.each do |question| %>
        <!-- <div class="col s12 m12 l12"> -->
       <%= render 'question' , question: question %>
