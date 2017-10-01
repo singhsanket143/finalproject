@@ -135,6 +135,7 @@
         <p style="font-family: Lato"><%= raw answer.content %></p>
         <br>
         <div class="row" style="padding-bottom: 0px;">
+
           <%= link_to ('<i class="material-icons right">forum</i>').html_safe, answer ,params[id: answer.id]%></button>
           <%if can? :update,answer%>
               <%= link_to ('<i class="material-icons right">create</i>').html_safe, answer %>
@@ -145,7 +146,11 @@
 
           <% end %>
           <a class="waves-effect waves-light grey btn modal-trigger" href="#modal1">Comment</a>
-
+          <% if answer.like_string(current_user.id,answer.id)== true%>
+              <%= link_to ('<i class="material-icons right" >favorite</i>').html_safe, answer_like_path(answer), remote:true,method: :post ,id: "like_#{answer.id}" %>
+          <%else%>
+              <%= link_to ('<i class="material-icons right" >favorite_border</i>').html_safe, answer_like_path(answer), remote:true,method: :post ,id: "like_#{answer.id}" %>
+          <%end%>
 
         </div>
 
