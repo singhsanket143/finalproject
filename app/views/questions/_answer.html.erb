@@ -33,11 +33,11 @@
       /*min-height: 11rem;*/
       /*line-height: 1.5rem;*/
       padding:1rem;
-      border-bottom: 0px;
+      /*border-bottom: 0;*/
          font-size: 19px;
 font-weight: 300;
 }
-    }
+
 
     .card-title .fakeimage {
       width: 50px;
@@ -99,11 +99,11 @@ padding-bottom: 2px;
 padding-top: 0px;
     }
 html body div#mithu.container div.row div.col.s12.m12.l7 div#answers div.row div.col.s12.m12.l12 div.answer div.userDetail div.card div.card-title.row{
-  margin-bottom:0px; 
+  margin-bottom:0px;
 }
 html body div#mithu.container div.row div.col.s12.m12.l7 div#answers div.row div.col.s12.m12.l12 div.answer div.userDetail div.card div.card-title.row div.left.details{
   margin-left: 10px;
-  
+
 }
 html body div#mithu.container div.row div.col.s12.m12.l7 div#answers div.row div.col.s12.m12.l12 div.answer div.userDetail div.card div.card-content.grey-text.text-darken-3 div.row a i.material-icons.right{
    color:#949599;
@@ -122,14 +122,14 @@ html body div#mithu.container div.row div.col.s12.m12.l7 div#answers div.row div
      <div class="card-title row" style="padding-bottom: 0px;">
       <div class="fakeimage left" style="margin-left: 10px;">
 
-         <div class="picture"><%=avatar_for(current_user,size: 25)%></div>
+         <div class="picture"><%=avatar_for(current_user,size: 55)%></div>
       </div>
      <div class="left details">
        <h5 id="head"><%= answer.user.name %></h5>
  <p id="head" style="font-weight: regular"><%= time_ago_in_words(answer.created_at) unless answer.created_at.blank? %> ago</p>
       <br>
      </div>
-      
+
     </div>
     <div class="card-content grey-text text-darken-3">
       <p style="font-family: Lato"><%= raw answer.content %></p>

@@ -260,7 +260,7 @@
           <!--  <h5>Trends to Follow</h5> -->
           <div id="tag_cloud">
             <% tag_cloud Question.tag_counts.order('count DESC').limit(10), %w[sml med lar] do |tag, css_class| %>
-                <% if tag.name.length <= 11 %>
+                <% if tag.name.length <= 10 %>
                     <div class="chip">
                       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
                       <i class="material-icons tagicon">add</i>

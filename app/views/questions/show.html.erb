@@ -11,7 +11,7 @@
   <!--Let browser know website is optimized for mobile-->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
 
-  
+
 
     <style type="text/css">
 
@@ -92,7 +92,7 @@ color: #696a6e;
 }
 div#quescontent p{
 color: #6f6f6f;
-} 
+}
 html body div#mithu.container div.row div.col.s12.m12.l7 div#cardques.card div#quescontent.card-content.grey-text div.row a i.material-icons.right{
  color:#949599;
 }
@@ -108,10 +108,10 @@ color:#0091ea;
  <!--  answer.created_at.strftime("%B %d, %Y")-->
  <div class="card-title">
   <div class="fakeimage">
-     <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 25)%></div>
+     <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 55)%></div>
   </div>
   <div id="quesuserdetail">
-    
+
  <h4><%= @question.user.name %></h4>
   <p ><%= time_ago_in_words(@question.created_at) unless @question.created_at.blank? %> ago</p>
 
@@ -126,7 +126,7 @@ color:#0091ea;
 
   <div class="row">
     <%if can? :update,@question%>
-   
+
     <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(@question)%>
     <% end %>.
     <%if can? :destroy,@question%>
