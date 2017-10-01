@@ -159,8 +159,8 @@
 
       </div>
       <div class="supporting_text text small">
-        <h3 style=" font-family: 'Cantarell, sans-serif';font-size: 22px;font-weight: bold;"><%= link_to question.title,question %></h3>
-        <p style="font-family: 'Josefin Slab', serif;"><%= question.content %></p>
+        <h3 style=" font-family: 'Cantarell, sans-serif';font-size: 22px;font-weight: bold;" class="truncate" ><%= link_to question.title ,question%></h3>
+        <!-- <p style="font-family: 'Josefin Slab', serif;"><%= question.content %></p> -->
 
 
 
@@ -173,7 +173,6 @@
         <div class="row">
           <div class="card-action">
             <%= link_to ('<i class="material-icons">comment</i>').html_safe, question ,params[id: question.id]%>
-
             <% if question.follow_string(current_user.id,question.id)== true%>
                 <%= link_to('Unfollow', question_follow_path(question), remote:true,method: :post,id: "follow_#{question.id}") %>
             <%else%>
