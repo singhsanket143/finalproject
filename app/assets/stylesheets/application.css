@@ -17,21 +17,24 @@
 
  body{
   background-color: #E6ECF0;
+
+  /*background-color: #D8D8D8;*/
+
 }
 nav#global{
-    height: 70px;
-      width:100%;
-    padding-top: 0px;
-      background-color: white;
-    box-shadow: none;
-      border-bottom: 1px solid rgba(0,0,0,0.25);
+  height: 70px;
+  width:100%;
+  padding-top: 0px;
+  background-color: white;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
 }
 nav#minione.nav-extended{
- 
+
   width: 30%;
-   height: 69px;
-    box-shadow: none;
-      border-bottom: 1px solid rgba(0,0,0,0.25);
+  height: 69px;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
 }
 html body div.navbar-fixed nav#global div.nav-wrapper.white div.container.navbar div.left.hide-on-med-and-down div.nav-wrapper.mini.white nav#minione.nav-extended div.nav-content{
   margin-top: 21px;
@@ -46,72 +49,72 @@ html body div.navbar-fixed nav#global div.nav-wrapper.white div.container.navbar
   padding-bottom: 5px;
   height: 75px;
   border-bottom: 1px solid rgba(0,0,0,0.25);
-}*/
+  }*/
 
-html body nav div.nav-wrapper.white ul#nav-mobile.tabs{
-  width: 596px;
-height: 69px;
+  html body nav div.nav-wrapper.white ul#nav-mobile.tabs{
+    width: 596px;
+    height: 69px;
 
-}
-html body nav div.nav-wrapper.white ul#nav-mobile.right.hide-on-med-and-down li.indicator{
-  color: #66757f; /*grey*/
+  }
+  html body nav div.nav-wrapper.white ul#nav-mobile.right.hide-on-med-and-down li.indicator{
+    color: #66757f; /*grey*/
 
-}
-html body nav div.nav-wrapper.white ul#nav-mobile.right.hide-on-med-and-down li a{
-  color: #66757f; /*grey*/
+  }
+  html body nav div.nav-wrapper.white ul#nav-mobile.right.hide-on-med-and-down li a{
+    color: #66757f; /*grey*/
 
-}
-html body nav div.nav-wrapper.white ul#nav-mobile.right.hide-on-med-and-down li a:hover{
-  color: #0097a7;  /*cyan*/
-  background-color: white;
+  }
+  html body nav div.nav-wrapper.white ul#nav-mobile.right.hide-on-med-and-down li a:hover{
+    color: #0097a7;  /*cyan*/
+    background-color: white;
 
-}
-#dropdown1.dropdown-content.active{
-  min-width: 300px;
-  top:70px;
-}
-
-
+  }
+  #dropdown1.dropdown-content.active{
+    min-width: 300px;
+    top:70px;
+  }
 
 
-div.globalsearch form.navsearch{
-  float: left;
-height: 33px;
-margin: 20px 15px 0 0;
-font-size: 12px;
-width: 221px;
-}
- div.globalsearch form.navsearch div.input-field input#search{
-  background-color: #f5f8fa;
-border-radius: 21px;
-border: 1px solid #e6ecf0;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-color: #14171a;
-display: block;
-font-size: 12px;
-height: 32px;
-line-height: 16px;
-padding: 8px 32px 8px 12px;
-transition: all .2s ease-in-out;
-width: 100%;
-}
 
- div.globalsearch form.navsearch div.input-field label.label-icon.right{
-  left:12rem;
-}
- div.globalsearch form.navsearch div.input-field label.label-icon.right i.material-icons{
-  line-height: 36px;
-  color:rgba(53, 38, 38, 0.7);
-}
- div.globalsearch form.navsearch div.input-field label.label-icon.right.active i.material-icons{
-  line-height: 36px;
-  color:rgba(53, 38, 38, 0.7);
-}
 
-nav .brand-logo.center {
+  div.globalsearch form.navsearch{
+    float: left;
+    height: 33px;
+    margin: 20px 15px 0 0;
+    font-size: 12px;
+    width: 221px;
+  }
+  div.globalsearch form.navsearch div.input-field input#search{
+    background-color: #f5f8fa;
+    border-radius: 21px;
+    border: 1px solid #e6ecf0;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #14171a;
+    display: block;
+    font-size: 12px;
+    height: 32px;
+    line-height: 16px;
+    padding: 8px 32px 8px 12px;
+    transition: all .2s ease-in-out;
+    width: 100%;
+  }
+
+  div.globalsearch form.navsearch div.input-field label.label-icon.right{
+    left:12rem;
+  }
+  div.globalsearch form.navsearch div.input-field label.label-icon.right i.material-icons{
+    line-height: 36px;
+    color:rgba(53, 38, 38, 0.7);
+  }
+  div.globalsearch form.navsearch div.input-field label.label-icon.right.active i.material-icons{
+    line-height: 36px;
+    color:rgba(53, 38, 38, 0.7);
+  }
+
+  nav .brand-logo.center {
     left: 30%;
-}
+  }
 
 
 /*ul#dropdown1.noti.dropdown-content.active{
@@ -119,13 +122,13 @@ width: 170px;
 top:75px;
 }*/
 .card.small.tag {
-    height: 500px;
-width: 22%;
-margin-top: 43px;
-padding-left: 15px;
+  height: 595px;
+  width: 22%;
+  margin-top: 43px;
+  padding-left: 15px;
 }
 
-  .card.small.tag:hover {
+.card.small.tag:hover {
 
   box-shadow: 0 12px 12px rgba(0, 0, .6, .6);
 
@@ -148,43 +151,51 @@ padding-left: 15px;
   font-size: inherit;
   line-height: 1.6em;
   border: 1px solid #00b8d4;
-background-color: white;  
+  background-color: white;  
   height: auto;
+  color: #00b8d4 ;
 }
 #tag_cloud .chip:hover{
-  background-color: #e0f7fa ;
+   background-color: #00b8d4;
+   color: #ffffff;
+/*  background-color: #e0f7fa ;*/
   
 }
 #tag_cloud .chip a{
   font-family: "DejaVu Sans",Verdana, Tahoma, Arial, sans-serif;
-    font-weight: 450;
+  font-weight: 450;
   color:#00b8d4;
+}
+#tag_cloud .chip a:hover{
+  font-family: "DejaVu Sans",Verdana, Tahoma, Arial, sans-serif;
+  font-weight: 450;
+  color:#ffffff;
 }
 
 /*#tag_cloud .chip a:hover{
   color:white;
-}*/
-#tag_cloud .chip a.sml{
-font-size: 0.8em; 
-  
-}
-#tag_cloud .chip a.med{
+  }*/
+  #tag_cloud .chip a.sml{
+    font-size: 0.8em; 
 
-  font-size: 1em; 
+  }
+  #tag_cloud .chip a.med{
 
-}
-#tag_cloud .chip a.lar{
+    font-size: 1em; 
 
- font-size: 1.4em; 
-}
-#tag_cloud .chip a .material-icons{
+  }
+  #tag_cloud .chip a.lar{
+
+   font-size: 1.4em; 
+ }
+ #tag_cloud .chip a .material-icons{
   font-size: 16px;
 }
 .car1.small.note {
   position: ;
-    height: 300px;
-    width: 18%;
-    margin-top: 43px;
+  height: 300px;
+  width: 18%;
+  margin-top: 43px;
 }
 
 
@@ -252,20 +263,19 @@ font-size: 0.8em;
 
 
 .card-image{
-   background: url("trending.jpg") no-repeat -39px -59px;
-height: 250px;
-margin-left: -15px;
+ background: url("trending.jpg") no-repeat -39px -59px;
+ height: 250px;
+ margin-left: -15px;
 }
 
 
 .image-inside{
-  
+ background: url("trendinginside.png") no-repeat 9px 0px;
+height: 142px;
+margin-left: 56px;
+margin-top: 30px;
+width: 150px;
 
-     background: url("trendinginside.png") no-repeat 9px -6px;
-    height: 134px;
-    margin-left: -0;
-    width: 200px;
-}
 }
 
 
@@ -276,7 +286,7 @@ margin-left: -15px;
 
   box-shadow: 0 12px 12px rgba(0, 0, .6, .6);
 
-}*/
+  }*/
 
 /*.input-field input[type="search"]{
   background-color: white;

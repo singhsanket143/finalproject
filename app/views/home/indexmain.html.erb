@@ -7,14 +7,16 @@
   .card.trend, .card.latest{
     height: 360px;
 overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     border: 1px solid #e2e2e2;
 
   }
+
 </style>
 </head>
 <body>
   <a class="waves-effect waves-light cyan btn modal-trigger" href="#modal2">Ask Question !</a>
+  <a href="#trendingquestions" class="right btn btn-floating btn-large waves-effect waves-light indigo darken-2 pulse z-depth-4"><i class="material-icons">trending_up</i></a>
   <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ASK QUESTION</h4>
@@ -32,7 +34,7 @@ overflow-x: hidden;
         </div>
 
 <div class="input-field">
-  <%= task.label :tag_list, "Tags (separated by commas)" %><br />
+  <%= task.label :tag_list, "Tags (separated by commas)" %>
   <%= task.text_field :tag_list %>
 </div>
 
@@ -55,19 +57,8 @@ overflow-x: hidden;
   </div>
   <!-- <div class="col s12"> -->
   <!-- <div class="container"> -->
-  <div class="card z-depth-0 grey lighten-4 trend">
-    <div id="questions">
-      <div class="row">
-        <% @trendingfeed.each do |question| %>
-         <!-- <div class="col s12 m12 l12"> -->
-        <%= render 'question' , question: question %>
-     <!-- </div> -->
-        <% end %>
-      </div>
 
-    </div>
-  </div>
-<div class="card z-depth-0 grey lighten-4 latest">
+<div class="z-depth-0 transparent latest">
   <div id="questions">
     <div class="row">
       <% @latestfeed.each do |question| %>
@@ -83,7 +74,18 @@ overflow-x: hidden;
   <!-- </div> -->
   <!-- <div class="container"> -->
 </div>
+  <div id="trendingquestions" class="z-depth-0 transparent trend">
+    <div id="questions">
+      <div class="row">
+        <% @trendingfeed.each do |question| %>
+         <!-- <div class="col s12 m12 l12"> -->
+        <%= render 'question' , question: question %>
+     <!-- </div> -->
+        <% end %>
+      </div>
 
+    </div>
+  </div>
 
   <!-- </div> -->
   <!-- </div> -->
