@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
 def addnotes
 	@note = Note.new
+  @question=Question.new
+
 end
 
   protected
