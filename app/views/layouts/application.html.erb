@@ -6,11 +6,11 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
   <link href='https://fonts.googleapis.com/css?family=Englebert' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
+
   <link href="https://fonts.googleapis.com/css?family=Cantarell|Capriola|Fresca|Josefin+Slab:600i" rel="stylesheet">
-=======
+
 <link href="https://fonts.googleapis.com/css?family=Cantarell|Capriola|Fresca|Josefin+Slab" rel="stylesheet"> 
->>>>>>> ef6a234e2f1668b500a51c43d4126bba94e53a46
+
 
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
@@ -167,10 +167,7 @@
                   <li class="tab"><a href="" class="dropdown-button" data-beloworigin="true" data-activates="dropdown1"><i class="material-icons right">notifications</i>Notifications</a></li>
                   <%end%>
                   <li class="tab"><a href='/users_list'>Users</a></li>
-<<<<<<< HEAD
-=======
-           
->>>>>>> ef6a234e2f1668b500a51c43d4126bba94e53a46
+
                 </ul>
               </div>
             </nav>
@@ -291,7 +288,7 @@
 
 
 
-<<<<<<< HEAD
+
             <div class="wrapper">
               <!--  <aside class="note-wrap note-yellow">
                  <p></p>
@@ -302,7 +299,7 @@
                 <hr><%if Note.all.length>=2%>
                 <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
                 </p>
-=======
+
   <div class="wrapper">
    <!--  <aside class="note-wrap note-yellow">
       <p></p>
@@ -315,14 +312,14 @@
   <hr><%if Note.all.length>=2%>
   <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
   </p>
->>>>>>> ef6a234e2f1668b500a51c43d4126bba94e53a46
+
 
   <br>
 
-<<<<<<< HEAD
+
 
               </aside>
-=======
+
    <div class="fixed-action-btn horizontal">
     <a class="btn-floating btn-large red">
       <i class="large material-icons">menu</i>
@@ -337,7 +334,6 @@
   </div>
 </aside>
   </div>
->>>>>>> ef6a234e2f1668b500a51c43d4126bba94e53a46
 
   </div>
 </div>
@@ -369,7 +365,7 @@
     $(".button-collapse").sideNav();
     $(document).ready(function(){
         $('.dropdown-button').dropdown({
-<<<<<<< HEAD
+
                 inDuration: 300,
                 outDuration: 225,
                 constrainWidth: false, // Does not change width of dropdown to that of the activator
@@ -393,7 +389,7 @@
         $('#modaladdnote').modal('close');
         $('.tooltipped').tooltip({delay: 50});
     });
-=======
+
        inDuration: 300,
        outDuration: 225,
        constrainWidth: false, // Does not change width of dropdown to that of the activator
@@ -422,7 +418,6 @@
   });
 
 
->>>>>>> ef6a234e2f1668b500a51c43d4126bba94e53a46
 </script>
 
 <script type="text/javascript" charset="utf-8">
@@ -440,7 +435,7 @@
         notificationList.append(liElement);
         liElement.append(data[i].actor+data[i].action+data[i].notifiable.type);
 //                    liElement.append(data[i].notifiable.type);
-<<<<<<< HEAD
+
             }
         },
         error: function(){
@@ -448,7 +443,7 @@
             console.log(arguments);
         }
     });
-=======
+
 }
 
 },
@@ -458,7 +453,7 @@ error: function(){
 }
 
 });
->>>>>>> ef6a234e2f1668b500a51c43d4126bba94e53a46
+
 </script>
 </body>
 </html>
