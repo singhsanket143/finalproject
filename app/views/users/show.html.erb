@@ -155,11 +155,11 @@
 </head>
 <div>
   <div class="col l12">
-    <div class="card1 z-depth-4">
+    <div class="card1 z-depth-4 ">
       <div class="row rowone">
-        <div class="col s12 l6 first">
+        <div class="col s12 l6 first ">
 
-          <div class="col l3 s12"><%= avatar_for(@user) %></div>
+          <div class="col l3 s12"><%= avatar_for(@user,size: 25) %></div>
           <!-- <div class="col l3 s12"><img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt=""></div> -->
           <div class="col l8 s12 desc">    <h3><%= @user.name %></h3>
             <span class="spanfollow">Follow</span>
@@ -195,12 +195,12 @@
         <li class="tab col s3"><a href="#profile-swipe-4">PROFILE</a></li>
       </ul>
       <br>
-      <div id="ques-swipe-1" class="col s12">
+      <div id="ques-swipe-1" class="col s12 ">
 
         <%@question.each do |q|%>
             <!-- <div class="row s12"> -->
-            <div class="col s12 m6">
-              <div class="card red lighten-1 z-depth-4">
+            <div class="col s12 m6 ">
+              <div class="card red lighten-1 z-depth-4 hoverable">
                 <div class="card-content white-text">
                   <span class="card-title truncate"><%=q.title%></span>
                   <p class="truncate"><%=q.content%></p>
@@ -227,7 +227,7 @@
       <%@answer.each do |a|%>
           <!-- <div class="row s12"> -->
           <div class="col s12 m6">
-            <div class="card red lighten-1 z-depth-4">
+            <div class="card red lighten-1 z-depth-4 hoverable">
               <div class="card-content white-text">
                 <span class="card-title truncate"><%=a.question.title%></span>
                 <p class="truncate"><%=raw a.content%></p>
@@ -255,7 +255,7 @@
           <%= f.email%>
       <%end%>
     </div>
-    <div id="profile-swipe-4" class="col s12">
+    <div id="profile-swipe-4 hoverable" class="col s12">
       <%= render :partial => 'users/edit'%>
     </div>
   </div>

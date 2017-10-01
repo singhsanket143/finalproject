@@ -7,9 +7,9 @@ class HomeController < ApplicationController
         @question = Question.new
 
         if params[:tag]
-          @feed = Question.tagged_with(params[:tag]).paginate(:per_page => 4, :page => params[:page])
+          @feed = Question.tagged_with(params[:tag]).paginate(:per_page => 20, :page => params[:page])
         else
-          @feed=current_user.feed.paginate(:per_page => 4, :page => params[:page])
+          @feed=current_user.feed.paginate(:per_page => 7, :page => params[:page])
 
         end
 
