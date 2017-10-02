@@ -22,96 +22,235 @@
   </style>
 </head>
 <body>
-<% if notice %>
-    <script type="text/javascript">
-        noty({text: '<%= notice %>', type: 'alert', timeout: 3500, progressBar: true});
-    </script>
-<% end %>
-<% if alert %>
-    <script type="text/javascript">
-        noty({text: '<%= alert %>', type: 'error', timeout: 5000, progressBar: true});
-    </script>
-<% end %>
+  <% if notice %>
+  <script type="text/javascript">
+    noty({text: '<%= notice %>', type: 'alert', timeout: 3500, progressBar: true});
+  </script>
+  <% end %>
+  <% if alert %>
+  <script type="text/javascript">
+    noty({text: '<%= alert %>', type: 'error', timeout: 5000, progressBar: true});
+  </script>
+  <% end %>
 
 
 
-<div class="navbar" id="global">
-  <div class="container">
-    <!-- logo -->
-    <div class="logo left">
-      <h4>AskKaro</h4>
-    </div>
-    <!-- logo end -->
-    <!-- right side -->
-    <div id="mininav" class="">
-      <nav id="rightnav" class="">
-        <!-- search -->
-        <div class="left">
-          <div id="navsearchbar">
-            <form action="/home/index" method="get">
-              <div class="input-field">
-                <!--<input id="search" placeholder="search" type="search" required>--><%= text_field_tag :search, params[:search],:id=>'search',:placeholder=>'Search' %>
-                <!--<label class="label-icon" for="search"><i class="material-icons">search</i></label>-->
-                <!--<i class="material-icons">close</i>-->
-              </div>
-            </form>
-          </div>
-
-        </div>
-        <!-- search end-->
 
 
-        <div class="row">
-          <ul>
-            <!--home about -->
-            <li><a id="home" class="btn dropdown-button" data-beloworigin="true" href="#" data-activates="dropdown1">HOME</a></li>
-            <!-- <li><a id="about" class="btn dropdown-button" data-beloworigin="true" href="#" data-activates="dropdown2">ABOUT</a></li> -->
-            <!--home about end -->
-
-            <!--login profile -->
-
-            <%if user_signed_in?%>
-
-                <li><a id="log" class="btn dropdown-button" data-activates="dropdown2" href="#"><i class="material-icons right">notifications</i>notification</a></li>
-                <li><a href="#"class="dropdown-button" data-beloworigin="true" data-activates="dropdown3"><div class="col s4">
-                  <!-- profile image -->
-                  <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 25)%></div>
-
-                </div></a></li>
-            <%else%>
-                <li><a id="log" class="btn" href="#">Log In</a></li>
-            <%end%>
 
 
-            <!--login profile end -->
-          </ul>
-          <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">three</a></li>
-          </ul>
-          <ul id="dropdown2" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">three</a></li>
-          </ul>
-          <ul id="dropdown3" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">three</a></li>
-          </ul>
-        </div>
+  <style type="text/css">
+   .search-wrapper {
+    position: absolute;
+    top: 0;
+    right: calc(5% - 20px);
+    padding: 4px 20px;
+  }
+  .search-wrapper .search-input {
+    font-family: 'Lato', sans-serif;
+    border: none;
+    background-color: #eeeeee;
+    color: #3e3e3e;
+    height: 18px;
+    width: 280px;
+    border-radius: 30px;
+    padding: 10px 18px 10px 18px;
+    font-size: 14px;
+    transition: width .3s ease;
+  }
+  .search-wrapper .search-input:focus {
+    outline: none;
+    background-color: #fff;
+  }
+  .search-wrapper .search-input::-webkit-input-placeholder {
+    letter-spacing: 1.5px;
+  }
+  .search-wrapper .search-input::-moz-placeholder {
+    letter-spacing: 1.5px;
+  }
+  .search-wrapper .search-input:-ms-input-placeholder {
+    letter-spacing: 1.5px;
+  }
+  .search-wrapper .search-icon {
+    position: absolute;
+    top: 28px;
+    right: calc(5% + 18px);
+    cursor: pointer;
+  }
+</style>
+
+
+<div class="navbar">
+
+  <section class="navigation">
+    <div class="nav-container hide-on-med-and-down">
+          
+      <div class="brand">
+        <a href="#!"><div class="image-logo1"></div></a>
+      </div>
+      <nav id="mininav">   
+        <ul class="nav-list">
+          <li>
+            <a href="#!">Home</a>
+          </li>
+          <li> <div class="search-wrapper">
+
+ <form action="/home/index" method="get">
+            <!-- <input class="search-input" placeholder="SEARCH" type="text" /> -->
+            <%= text_field_tag :search, params[:search],:class=>'search-input',:placeholder=>'Search' %>
+
+
+            <svg width="13px" height="13px" class="search-icon" viewBox="0 0 13 13">
+              <path fill="#999999" d="M12,13a1,1,0,0,1-.7-.3L8.62,10A5.5,5.5,0,1,1,10,8.62l2.68,2.68A1,1,0,0,1,12,13ZM5.5,2A3.5,3.5,0,1,0,9,5.5,3.5,3.5,0,0,0,5.5,2Z"/>
+            </svg>
+  </form>
+
+
+
+          </div></li>
+          <li>
+            <a href="#!">About</a>
+          </li>
+          <li>
+            <a href="#!">Services</a>
+            <ul class="nav-dropdown">
+              <li>
+                <a href="#!">Web Design</a>
+              </li>
+              <li>
+                <a href="#!">Web Development</a>
+              </li>
+              <li>
+                <a href="#!">Graphic Design</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#!">Pricing</a>
+          </li>
+          <li>
+            <a href="#!">Portfolio</a>
+            <ul class="nav-dropdown">
+              <li>
+                <a href="#!">Web Design</a>
+              </li>
+              <li>
+                <a href="#!">Web Development</a>
+              </li>
+              <li>
+                <a href="#!">Graphic Design</a>
+              </li>
+            </ul>
+          </li>
+          <%if user_signed_in?%>
+          <li><a href="#"><%=avatar_for(current_user,size: 25)%></a>
+            <ul class="nav-dropdown">
+              <li>
+                <a href="#!">Web Design</a>
+              </li>
+              <li>
+                <a href="#!">Web Development</a>
+              </li>
+              <li>
+                <a href="#!">Graphic Design</a>
+              </li>
+            </ul>
+          </li>         
+          <%else%>
+          <%end%>
+        </ul>
       </nav>
 
     </div>
 
-    <!-- right side end-->
+    <div class="nav-container hide-on-large-only">
 
-  </div>
+  <ul id="slide-out" class="side-nav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="images/office.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+  <div class="left"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a></div>
+     <div class="brand center">
+        <a href="#!"><div class="image-logo1"></div></a>
+      </div>
+
+          <!--  <nav id="small-device-nav"class> -->
+        <ul class="nav-list right">
+       <%if user_signed_in?%>
+          <li class="right"><a href="#"><%=avatar_for(current_user,size: 25)%></a>
+            <ul class="nav-dropdown">
+              <li>
+                <a href="#!">Web Design</a>
+              </li>
+              <li>
+                <a href="#!">Web Development</a>
+              </li>
+              <li>
+                <a href="#!">Graphic Design</a>
+              </li>
+            </ul>
+          </li>         
+          <%else%>
+          <%end%>
+          
+        </ul>
+    <!--   </nav> -->
+    </div>
+  </section>
 </div>
+
+
+
+<script type="text/javascript">
+
+  (function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,9 +271,9 @@
     <div class="modal-content">
       <%= render :partial => 'layouts/modal'%>
     </div>
-    <!-- <div class="modal-footer">
-    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div> -->
+      <!-- <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div> -->
   </div>
   <div id="modaltag" class="modal">
     <div class="modal-content">
@@ -143,162 +282,203 @@
     <!-- <div class="modal-footer">
     <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
   </div> -->
-  </div>
+</div>
 
-  <div class="hide-on-med-and-down">
-    <div class="">
-      <div class="col s12 m12 l4">
-        <div class='card small tag left'>
-          <div class="card-image">
-            <div class="image-inside"></div>
-            <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Trends to Follow</span>
+<div class="hide-on-med-and-down">
+  <div class="">
+    <div class="col s12 m12 l4">
+      <div class='card small tag left'>
+        <div class="card-image">
+          <div class="image-inside"></div>
+          <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Trends to Follow</span>
+        </div>
+        <!--  <h5>Trends to Follow</h5> -->
+        <div id="tag_cloud">
+          <% tag_cloud Question.tag_counts.order('count DESC').limit(10), %w[sml med lar] do |tag, css_class| %>
+          <% if tag.name.length <= 11 %>
+          <div class="chip">
+            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+            <i class="material-icons tagicon">add</i>
           </div>
-          <!--  <h5>Trends to Follow</h5> -->
-          <div id="tag_cloud">
-            <% tag_cloud Question.tag_counts.order('count DESC').limit(10), %w[sml med lar] do |tag, css_class| %>
-                <% if tag.name.length <= 11 %>
-                    <div class="chip">
-                      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-                      <i class="material-icons tagicon">add</i>
-                    </div>
-                <% end %>
-            <% end %>
+          <% end %>
+          <% end %>
 
-          </div>
-          <div class="card-action center">
-            <a class="waves-effect waves-light cyan btn modal-trigger" href="#modaltag">SEE ALL</a>
-            <!-- <a href="./tags_list">SEE ALL</a> -->
-          </div>
+        </div>
+        <div class="card-action center">
+          <a class="waves-effect waves-light cyan btn modal-trigger" href="#modaltag">SEE ALL</a>
+          <!-- <a href="./tags_list">SEE ALL</a> -->
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <%if user_signed_in?%>
+<%if user_signed_in?%>
 
-      <div class="hide-on-med-and-down fixed">
-        <div class="col s12 m12 l4">
-          <div class='car1 small note right'>
-
-
-
-
-            <div class="wrapper">
-              <!--  <aside class="note-wrap note-yellow">
-              <p></p>
-            </aside> -->
-
-
-              <aside class="note-wrap note-yellow">
-                <%if Note.all.length>0%>
-                    <p>  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
-                <hr><%if Note.all.length>=2%>
-                    <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
-                </p>
-
-                <br>
-
-                <div class="fixed-action-btn horizontal">
-                  <a class="btn-floating btn-large waves-effect waves-light red z-depth-4">
-                    <i class="large material-icons">menu</i>
-                  </a>
-                  <ul>
-                    <li><a href="#modaladdnote" class="btn-floating tooltipped green" data-position="bottom" data-delay="50" data-tooltip="Add Note"><i class="material-icons">mode_edit</i></a></li>
-
-                    <li><a class="btn-floating tooltipped yellow darken-1" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="material-icons">delete</i></a></li>
-                    <li><a href="./notes" class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="See All"><i class="material-icons">list</i></a></li>
-                    <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
-                  </ul>
-                </div>
-              </aside>
-            </div>
-            <a class="btn-flat dropdown-button tooltipped waves-effect waves-light white-text" data-position="bottom" data-delay="50" data-tooltip="User" href="#" data-activates="profile-dropdown">MITHU<i class="mdi-navigation-arrow-drop-down right"></i></a>
+<div class="hide-on-med-and-down fixed">
+  <div class="col s12 m12 l4">
+    <div class='car1 small note right'>
 
 
 
-            <div class="white">
-              <%= render :partial => 'layouts/sideques'%>
 
-            </div>
+      <div class="wrapper">
+        <!--  <aside class="note-wrap note-yellow">
+        <p></p>
+      </aside> -->
 
 
-          </div>
+      <aside class="note-wrap note-yellow">
+        <%if Note.all.length>0%>
+        <p>  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
+        <hr><%if Note.all.length>=2%>
+        <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
+        </p>
+
+        <br>
+
+        <div class="fixed-action-btn horizontal">
+          <a class="btn-floating btn-large waves-effect waves-light red z-depth-4">
+            <i class="large material-icons">menu</i>
+          </a>
+          <ul>
+            <li><a href="#modaladdnote" class="btn-floating tooltipped green" data-position="bottom" data-delay="50" data-tooltip="Add Note"><i class="material-icons">mode_edit</i></a></li>
+
+            <li><a class="btn-floating tooltipped yellow darken-1" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="material-icons">delete</i></a></li>
+            <li><a href="./notes" class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="See All"><i class="material-icons">list</i></a></li>
+            <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
+          </ul>
         </div>
-      </div>
-
-  <%end%>
-
-  <div class="row">
-    <div class="col s12 m12 l7">
-      <%= yield %>
+      </aside>
     </div>
-  </div>
 
 
-  <div id="modaladdnote" class="modal">
-    <div class="modal-content">
-      <%= render :partial => 'layouts/modaladdnote'%>
+
+
+    <div class="white">
+      <%= render :partial => 'layouts/sideques'%>
+
     </div>
-    <!-- <div class="modal-footer">
-    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div> -->
+
+
   </div>
+</div>
+</div>
+
+<%end%>
+
+<div class="row">
+  <div class="col s12 m12 l7">
+    <%= yield %>
+  </div>
+</div>
+
+
+<div id="modaladdnote" class="modal">
+  <div class="modal-content">
+    <%= render :partial => 'layouts/modaladdnote'%>
+  </div>
+  <!-- <div class="modal-footer">
+  <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+</div> -->
+</div>
 
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
 
 <script>
-    $(".button-collapse").sideNav();
-    $(document).ready(function(){
-        $('.dropdown-button').dropdown({
-                inDuration: 300,
-                outDuration: 225,
-                constrainWidth: false, // Does not change width of dropdown to that of the activator
-                hover: true, // Activate on hover
-                gutter: 0, // Spacing from edge
-                belowOrigin: true, // Displays dropdown below the button
-                alignment: 'right', // Displays dropdown with edge aligned to the left of button
-                stopPropagation: false // Stops event propagation
-            }
-        );
+
+  $(".button-collapse").sideNav({
+      // menuWidth: 300, // Default is 300
+      // edge: 'right', // Choose the horizontal origin
+      // closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      // draggable: true, // Choose whether you can drag to open on touch screens,
+     
+    }
+  );
+
+
+
+  $(document).ready(function(){
+
+    $('.dropdown-button').dropdown({
+     inDuration: 300,
+     outDuration: 225,
+     constrainWidth: false, // Does not change width of dropdown to that of the activator
+     hover: true, // Activate on hover
+     gutter: 0, // Spacing from edge
+     belowOrigin: true, // Displays dropdown below the button
+     alignment: 'right', // Displays dropdown with edge aligned to the left of button
+     stopPropagation: false // Stops event propagation
+   }
+   );
 // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-        $('#modal7').modal();
-        $('#modal7').modal('open');
-        $('.trigger-modal').modal();
-        $('#modal7').modal('close');
-        $('#modaltag').modal();
-        $('#modaltag').modal('open');
-        $('#modaltag').modal('close');
-        $('#modaladdnote').modal();
-        $('#modaladdnote').modal('open');
-        $('#modaladdnote').modal('close');
-        $('.tooltipped').tooltip({delay: 50});
-    });
+$('#modal7').modal();
+$('#modal7').modal('open');
+$('.trigger-modal').modal();
+$('#modal7').modal('close');
+$('#modaltag').modal();
+$('#modaltag').modal('open');
+
+$('#modaltag').modal('close');
+$('#modaladdnote').modal();
+$('#modaladdnote').modal('open');
+
+$('#modaladdnote').modal('close');
+$('.tooltipped').tooltip({delay: 50});
+
+
+});
+
+
 </script>
 
 <script type="text/javascript" charset="utf-8">
-    $(".dropdown-button").dropdown({ hover: true, data-constrainwidth="false"});
-    $.ajax({
-        url: '/notifications.json',
-        success: function(data){
-            console.log("****");
-            console.log(data[1].notifiable.type);
-            console.log("****");
-            var result=data;
-            var notificationList=document.getElementById('dropdown1');
-            for(var i=0;i<data.length;i++){
-                var liElement = document.createElement('li');
-                notificationList.append(liElement);
-                liElement.append(data[i].actor+data[i].action+data[i].notifiable.type);
-                //                    liElement.append(data[i].notifiable.type);
-            }
-        },
-        error: function(){
-            console.log("some error");
-            console.log(arguments);
-        }
-    });
+  $(".dropdown-button").dropdown({ hover: true, data-constrainwidth="false"});
+  $.ajax({
+    url: '/notifications.json',
+    success: function(data){
+      console.log("****");
+      console.log(data[1].notifiable.type);
+      console.log("****");
+      var result=data;
+      var notificationList=document.getElementById('dropdown1');
+      for(var i=0;i<data.length;i++){
+        var liElement = document.createElement('li');
+        notificationList.append(liElement);
+        liElement.append(data[i].actor+data[i].action+data[i].notifiable.type);
+      //                    liElement.append(data[i].notifiable.type);
+    }
+
+  },
+  error: function(){
+    console.log("some error");
+    console.log(arguments);
+  }
+
+});
+</script>
+<script type="text/javascript">
+
+
+//in case you want to think about touch devices...I guess thats cool.
+var toggle = true;
+$('.mobile-dropdown').on('click', function(){
+
+  alert('oh yeahh');
+  if(toggle===true){
+    $(this).addClass('active-drop');
+    toggle = false;
+    alert('turned on');
+  }else{
+    $(this).removeClass('active-drop');
+    toggle = true;
+    alert('turned off');
+  }
+})
+
+
 </script>
 </body>
 </html>
