@@ -330,9 +330,9 @@
 
       <aside class="note-wrap note-yellow">
         <%if Note.all.length>0%>
-        <p>  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
+        <p class="truncate">  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
         <hr><%if Note.all.length>=2%>
-        <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
+        <p class="truncate"><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
         </p>
 
         <br>
@@ -344,12 +344,22 @@
           <ul>
             <li><a href="#modaladdnote" class="btn-floating tooltipped green" data-position="bottom" data-delay="50" data-tooltip="Add Note"><i class="material-icons">mode_edit</i></a></li>
 
-            <li><a class="btn-floating tooltipped yellow darken-1" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="material-icons">delete</i></a></li>
+            <li><a class="btn-floating tooltipped yellow darken-1 modal-trigger" href="#modalshownote" data-position="bottom" data-delay="50" data-tooltip="Show Note"><i class="material-icons">arrow_drop_down</i></a></li>
+
             <li><a href="./notes" class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="See All"><i class="material-icons">list</i></a></li>
             <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
           </ul>
         </div>
       </aside>
+
+ <div id="modalshownote" class="modal">
+      <div class="modal-content">
+        <%= render :partial => 'layouts/modalshownote'%>
+      </div>
+    
+</div>
+
+
     </div>
 
 
@@ -426,6 +436,11 @@ $('#modaladdnote').modal();
 $('#modaladdnote').modal('open');
 
 $('#modaladdnote').modal('close');
+$('#modalshownote').modal();
+$('#modalshownote').modal('open');
+
+$('#modalshownote').modal('close');
+
 $('.tooltipped').tooltip({delay: 50});
 
 

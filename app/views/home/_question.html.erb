@@ -33,9 +33,9 @@
     div.card.ques div.card-title figure {
       width: 40px;
       height: 40px;
-      background-color: #dddddd;
-      background-image: url(http://www.msudenver.edu/media/sampleassets/profile-placeholder.png);
-      background-size: cover;
+   /*   background-color: #dddddd;
+      background-image: url(http://www.msudenver.edu/media/sampleassets/profile-placeholder.png);*/
+     /* background-size: cover;*/
       margin: 0 16px 0 0;
       padding: 0;
       border-radius: 50%;
@@ -98,7 +98,7 @@
       /*height: 36px;*/
       margin: 0;
       margin-right: 0px;
-      padding: 0 8px;
+      padding: 0px;
       background-color: #ffffff;
       border: none;
       font-size: 14px;
@@ -108,17 +108,38 @@
 
     div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a i.material-icons{
       color:#949599;
+      border-radius: 50%; 
     }
     div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a i.material-icons:hover{
       color:#0091ea;
     }
     div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a{
       color:#949599;
+      border-radius: 50%; 
     }
     div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a:hover{
       color:#0091ea;
     }
-
+div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.small div.row div.card-action a i.btn , 
+ div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a.btn{
+  color: #fff;
+  background-color: #949599;
+  border: none;
+border-radius: 20px;
+display: inline-block;
+height: 30px;
+line-height: 30px;
+padding: 0 1rem;
+text-transform: uppercase;
+vertical-align: middle;
+}
+div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.small div.row div.card-action a i.btn:hover,
+     div#questions div.row div.question div.userDetail div.card.ques div.supporting_text.text.small div.row div.card-action a.btn:hover{
+      color: #fff;
+      background-color:#00b8d4 ;
+      z-index: 8000;
+     
+    }
 
     .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
       margin-right: 0px;
@@ -150,7 +171,7 @@
     <div class="card ques hoverable" elevation="2">
       <div class="card-title">
         <figure elevation="1">
-          <%=avatar_for(current_user,size: 48)%>
+          <%=avatar_for(current_user,size: 25)%>
         </figure>
         <div class="text small">
           <h1 style="font-family: 'Fresca', sans-serif;"><%= question.user.name %></h1>
@@ -172,21 +193,21 @@
 
         <div class="row">
           <div class="card-action">
-            <%= link_to ('<i class="material-icons">comment</i>').html_safe, question ,params[id: question.id]%>
+            <%= link_to ('<i class="btn">Answer</i>').html_safe, question ,params[id: question.id] %>
             <% if question.follow_string(current_user.id,question.id)== true%>
-                <%= link_to('Unfollow', question_follow_path(question), remote:true,method: :post,id: "follow_#{question.id}") %>
+                <%= link_to(('<span class="">Unfollow</span>').html_safe, question_follow_path(question), remote:true,method: :post,id: "follow_#{question.id}",:class =>"waves-effect waves-light btn") %>
             <%else%>
-                <%= link_to('follow', question_follow_path(question), remote:true,method: :post,id: "follow_#{question.id}") %>
+                <%= link_to(('<span class="">follow</span>').html_safe, question_follow_path(question), remote:true,method: :post,id: "follow_#{question.id}",:class =>"waves-effect waves-light btn") %>
             <%end%>
             <div class="right">
               <% if question.like_string(current_user.id,question.id)== true%>
-                  <%= link_to ('<i class="material-icons right" >favorite</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
+                  <%= link_to ('<i class="material-icons right">favorite_border</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
               <%else%>
-                  <%= link_to ('<i class="material-icons right" >favorite_border</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
+                  <%= link_to ('<i class="material-icons right">favorite_border</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
               <%end%>
 
               <%if can? :update,question%>
-                  <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(question) %>
+                  <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(question)%>
               <%end%>
               <%if can? :destroy,question%>
                   <%= link_to ('<i class="material-icons right">delete</i>').html_safe, question, method: :delete, data: {confirm: "Are you sure?"}%>

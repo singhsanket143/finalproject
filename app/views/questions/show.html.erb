@@ -99,6 +99,25 @@
     html body div#mithu.container div.row div.col.s12.m12.l7 div#cardques.card div#quescontent.card-content.grey-text div.row a i.material-icons.right:hover{
       color:#0091ea;
     }
+    html body div#mithu.container div.row div.col.s12.m12.l7 div.createAnswer form#new_answer.new_answer div.actions input#create_answer_submit.btn.right{
+        color: #fff;
+  background-color: #949599;
+  border: none;
+border-radius: 20px;
+display: inline-block;
+height: 40px;
+line-height: 40px;
+padding: 0 1rem;
+text-transform: uppercase;
+vertical-align: middle;
+margin : 10px;
+margin-top: 8px;
+margin-bottom: 15px;
+    }
+    html body div#mithu.container div.row div.col.s12.m12.l7 div.createAnswer form#new_answer.new_answer div.actions input#create_answer_submit.btn.right:hover{
+background: #00BCD4;
+z-index: 8000;
+    }
   </style>
 
 </head>
@@ -157,7 +176,8 @@
         <%= task.cktext_area :content, rows: 10 %>
       </div>
       <div class="actions">
-        <%= task.submit id: 'create_answer_submit'%>
+        <%= task.submit id: 'create_answer_submit', class: 'btn right'%>
+        
 
       </div>
   <% end %>
