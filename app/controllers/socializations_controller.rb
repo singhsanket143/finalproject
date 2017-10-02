@@ -1,10 +1,24 @@
-
-
-  class SocializationsController < ApplicationController
+class SocializationsController < ApplicationController
   before_filter :load_socializable
 
   def follow
     current_user.toggle_follow!(@socializable)
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
+  def followQuestion
+    @question=Question.find(params[:question_id])
+    follow=Follow.where(followable_type: "Question",follower_id: current_user.id,followable_id: @question.id).first
+
+    if follow
+      current_user.toggle_follow!(@socializable)
+      @is_followed=false
+    else
+      current_user.toggle_follow!(@socializable)
+      @is_followed=true
+    end
     respond_to do |format|
       format.js {}
     end
@@ -27,6 +41,21 @@
     end
   end
 
+  def likeAnswer
+    @answer=Answer.find(params[:answer_id])
+    like=Like.where(likeable_type: "Answer",liker_id: current_user.id,likeable_id: @answer.id).first
+    if like
+      current_user.toggle_like!(@socializable)
+      @is_liked=false
+    else
+      current_user.toggle_like!(@socializable)
+      @is_liked=true
+    end
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
   private
   def load_socializable
     @socializable =
@@ -37,7 +66,8 @@
             User.find(id)
           when id = params[:user_id]
             User.find(id)
-
+          when id = params[:answer_id]
+            Answer.find(id)
           when id = params[:maintrend_id]
             Maintrend.find(id)
 

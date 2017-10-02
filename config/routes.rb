@@ -15,16 +15,19 @@ Rails.application.routes.draw do
     end
   end
   get 'home/index'
-
+  get '/sear',to: 'questions#index'
   devise_for :users, :controllers => { sessions: "sessions", registrations: "registrations",:omniauth_callbacks => "omniauth_callbacks" }
   root to: "home#indexmain"
   resources :users,only: [:show,:edit,:update]
   get '/users_list'=>'home#users_list'
- get '/tags_list'=>'home#tags_list'
+  get '/tags_list'=>'home#tags_list'
 
   resources :questions do
     post 'like',   to: 'socializations#like'
-    post 'follow', to: 'socializations#follow'
+    post 'follow', to: 'socializations#followQuestion'
+  end
+  resources :answers do
+    post 'like',   to: 'socializations#likeAnswer'
   end
   resources :subtrends do
     post 'follow', to: 'socializations#follow'

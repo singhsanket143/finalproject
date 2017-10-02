@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
   <link href='https://fonts.googleapis.com/css?family=Englebert' rel='stylesheet' type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Cantarell|Capriola|Fresca|Josefin+Slab" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Cantarell|Capriola|Fresca|Josefin+Slab" rel="stylesheet">
 
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
@@ -16,400 +16,289 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <style type="text/css">
-   .container{
+    .container{
       width:90%;
     }
   </style>
 </head>
 <body>
-  <% if notice %>
-  <script type="text/javascript">
-    noty({text: '<%= notice %>', type: 'alert', timeout: 3500, progressBar: true});
-  </script>
-  <% end %>
-  <% if alert %>
-  <script type="text/javascript">
-    noty({text: '<%= alert %>', type: 'error', timeout: 5000, progressBar: true});
-  </script>
-  <% end %>
-  <div class="navbar-fixed">
-    <nav id=global>
-      <div class="nav-wrapper white">
-        <div class="container navbar">
-
-        <!-- side nav bar -->
-           <div class="hide-on-large-only">
-          <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-        </div>
-        <ul class="side-nav grey darken-2" id="mobile-demo">
-          <li class="sidenav-header red">
-            <div class="row">
-              <%if user_signed_in?%>
-              <div class="col s4">
-                <!-- profile image -->
-                <img src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" width="98px" height="98px" alt="" class="circle responsive-img valign profile-image">
-              </div>
-              <%else%>
-              <img src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" width="98px" height="98px" alt="" class="circle responsive-img valign profile-image">
-              <%end%>
-              <div class="col s8">
-                <%if user_signed_in?%>
-                <a class="btn-flat dropdown-button waves-effect waves-light white-text" href="#" data-activates="profile-dropdown">MITHU<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                <%else%>
-                <a href="#" class="right">GUEST</a>
-                <%end%>
-
-                <ul id="profile-dropdown" class="dropdown-content">
-
-                  <li><a href="#"><i class="material-icons">person</i>Profile</a></li>
-                  <li><a href="#"><i class="material-icons">settings</i>Setting</a></li>
-                  <li><a href="#"><i class="material-icons">help</i>Help</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#"><i class="material-icons">lock</i>Lock</a></li>
-                  <%if user_signed_in?%>
-                  <li><a><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
-                  <!-- <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i></a></li> -->
-                  <%else%>
-                  <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign in</a></li>
-                  <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign up</a></li>
-                  <%end%>
-
-                </ul>
-              </div>
-            </div>
-
-            <ul class="hide-on-med-and-up">
+<% if notice %>
+    <script type="text/javascript">
+        noty({text: '<%= notice %>', type: 'alert', timeout: 3500, progressBar: true});
+    </script>
+<% end %>
+<% if alert %>
+    <script type="text/javascript">
+        noty({text: '<%= alert %>', type: 'error', timeout: 5000, progressBar: true});
+    </script>
+<% end %>
 
 
-              <form>
-                <div class="input-field focused">
-                  <input id="search active" type="search" required>
-                  <label class="label-icon active" for="search"><i class="material-icons">search</i></label>
 
-                </div>
-              </form>
-            </ul>
-            <ul class="collapsible collapsible-accordion hide-on-small-only">
-              <li>
-                <a class="collapsible-header white-text waves-effect waves-blue "><i class="material-icons white-text ">person</i>Profile <i class="material-icons right white-text" style="margin-right:0;">arrow_drop_down</i></a>
-                <div class="collapsible-body z-depth-3">
-                  <ul>
-                    <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">person</i>Profile</a></li>
-                    <li class="divider"></li>
-                    <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">settings</i>Settings</a></li>
-                    <li class="divider"></li>
-                    <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">help</i>Help</a></li>
-                    <li class="divider"></li>
-                    <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">lock</i>Lock</a></li>
-                    <li class="divider"></li>
-                    <%if user_signed_in?%>
-
-                    <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
-                    <li class="divider"></li>
-                    <%else%>
-                    <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign in</a></li>
-                    <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign up</a></li>
-
-                    <%end%>
-
-
-                  </ul>
-                </div>
-              </li>
-            </ul>
-
-
-            <!--sidebar end  -->
-
-
-            <ul class="hide-on-med-and-up">
-              <li><a class="dropdown-button white-text" data-activates="dropdown2"><i class="material-icons white-text ">person</i>ProfileD<i class="material-icons right white-text"style="margin-right:0;">arrow_drop_down</i></a></li>
-            </ul>
-            <ul id="dropdown2" class="dropdown-content white-text">
-              <li><%= link_to ('<i class="material-icons">person</i>Profile').html_safe,current_user%></li>
-              <li class="divider"></li>
-              <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">settings</i>Settings</a></li>
-              <li class="divider"></li>
-              <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">help</i>Help</a></li>
-              <li class="divider"></li>
-              <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">lock</i>Lock</a></li>
-              <li class="divider"></li>
-              <%if user_signed_in?%>
-              <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
-              <li class="divider"></li>
-              <%else%>
-              <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign in</a></li>
-              <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign up</a></li>
-
-              <%end%>
-            </ul>
-          </li>
-
-          <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">mail</i>Home</a></li>
-          <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">person</i>About</a></li>
-          <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">android</i> Menu item</a></li>
-          <li class="white"><a href='/users_list' class="waves-effect waves-blue"><i class="material-icons">call</i>Users</a></li>
-          <li class="white"><div class="divider"></div></li>
-        </ul>
-        <!-- side bar ended -->
-    <!--     <div class="left hide-on-med-and-down">
-<div class="nav-wrapper mini white">
-  <nav id="minione" class="nav-extended">
-
-              <div class="nav-content">
-                <ul class="global tabs tabs-transparent">
-                  <li class="tab"><a class="active" href="/">Home</a></li>
-                  <% if user_signed_in?%>
-                          <li><a href="" class="dropdown-button" data-activates="dropdown1"><i class="material-icons right">notifications</i></a></li>
-                  <li class="tab"><a href="" class="dropdown-button" data-beloworigin="true" data-activates="dropdown1"><i class="material-icons right">notifications</i>Notifications</a></li>
-                  <%end%>
-                  <li class="tab"><a href='/users_list'>Users</a></li>
-           
-                </ul>
-
-
-              </div>
-            </nav>
-  </div>
-</div> -->
-        <a href="#" class="brand-logo center blue-grey-text text-darken-2">Logo</a>
-        <ul id="nav-mobile" class="right">
-
-          <%if user_signed_in?%>
-          <li><a href="#"class="dropdown-button" data-activates="dropdown2"><div class="col s4">
-            <!-- profile image -->
-            <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 25)%></div>
-
-          </div></a></li>
-
-          <%else%>
-
-          <li><a href="#"class="dropdown-button" data-activates="dropdown2"><div class="col s4">
-            <!-- profile image -->
-            <img src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" alt="" class="circle responsive-img valign profile-image" width="48px" height="48px">
-
-          </div></a></li>
-          <!-- -->
-          <%end%>
-
-        </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down tabs">
-          <li right>
-             <div class="globalsearch left">
-              <form class="navsearch">
-                <div class="input-field">
-                  <input id="search" placeholder="search" type="search" required>
-                  <label class="label-icon right" for="search"><i class="material-icons">search</i></label>
-                  <!-- <i class="material-icons ">close</i> -->
-                </div>
-              </form>
-            </div>
-          </li>
-
-          <!--   <li><a class="btn tooltipped" data-position="bottom" data-delay="50" data-activates-tooltip="dropdown1">Hover me!</a></li> -->
-          <li class="tab active"><a href="/">Home</a></li>
-          <li class="tab"><a href='/users_list'>Users</a></li>
-
-        <li class="tab"><a href="" class="dropdown-button" data-activates="dropdown1"><i class="material-icons right">notifications</i>notification</a></li>
-
-      </ul>
+<div class="navbar" id="global">
+  <div class="container">
+    <!-- logo -->
+    <div class="logo left">
+      <h4>AskKaro</h4>
     </div>
-        </div>
+    <!-- logo end -->
+    <!-- right side -->
+    <div id="mininav" class="">
+      <nav id="rightnav" class="">
+        <!-- search -->
+        <div class="left">
+          <div id="navsearchbar">
+            <form action="/home/index" method="get">
+              <div class="input-field">
+                <!--<input id="search" placeholder="search" type="search" required>--><%= text_field_tag :search, params[:search],:id=>'search',:placeholder=>'Search' %>
+                <!--<label class="label-icon" for="search"><i class="material-icons">search</i></label>-->
+                <!--<i class="material-icons">close</i>-->
+              </div>
+            </form>
+          </div>
 
-  </nav>
+        </div>
+        <!-- search end-->
+
+
+        <div class="row">
+          <ul>
+            <!--home about -->
+            <li><a id="home" class="btn dropdown-button" data-beloworigin="true" href="#" data-activates="dropdown1">HOME</a></li>
+            <!-- <li><a id="about" class="btn dropdown-button" data-beloworigin="true" href="#" data-activates="dropdown2">ABOUT</a></li> -->
+            <!--home about end -->
+
+            <!--login profile -->
+
+            <%if user_signed_in?%>
+
+                <li><a id="log" class="btn dropdown-button" data-activates="dropdown2" href="#"><i class="material-icons right">notifications</i>notification</a></li>
+                <li><a href="#"class="dropdown-button" data-beloworigin="true" data-activates="dropdown3"><div class="col s4">
+                  <!-- profile image -->
+                  <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 25)%></div>
+
+                </div></a></li>
+            <%else%>
+                <li><a id="log" class="btn" href="#">Log In</a></li>
+            <%end%>
+
+
+            <!--login profile end -->
+          </ul>
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">three</a></li>
+          </ul>
+          <ul id="dropdown2" class="dropdown-content">
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">three</a></li>
+          </ul>
+          <ul id="dropdown3" class="dropdown-content">
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">three</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <!-- right side end-->
+
+  </div>
 </div>
 
-<br><br>
-<% if user_signed_in?%>
-<!--  <ul id="dropdown1" class="noti dropdown-content active" data-behaviour="notifications" style="width: 169px; top: 65px; position: absolute; left: 1057px; opacity: 1; display: block;"> -->
-<ul id="dropdown1" class="noti dropdown-content" data-behaviour="notifications"> 
-  <div data-behaviour="notification-items">
-    <li class="noti"><a href="#!">one</a></li>
-    <li class="noti"><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li class="noti"><a href="#!">three</a></li>
-  </div>
-</ul>
-<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container" id="mithu">
   <div id="modal7" class="modal">
     <div class="modal-content">
       <%= render :partial => 'layouts/modal'%>
     </div>
-      <!-- <div class="modal-footer">
-        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-      </div> -->
+    <!-- <div class="modal-footer">
+    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+  </div> -->
+  </div>
+  <div id="modaltag" class="modal">
+    <div class="modal-content">
+      <%= render :partial => 'layouts/modaltag'%>
     </div>
-    <div id="modaltag" class="modal">
-      <div class="modal-content">
-        <%= render :partial => 'layouts/modaltag'%>
-      </div>
-      <!-- <div class="modal-footer">
-        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-      </div> -->
-    </div>
+    <!-- <div class="modal-footer">
+    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+  </div> -->
+  </div>
 
-    <div class="hide-on-med-and-down">
-     <div class="">
-     <div class="col s12 m12 l4">
-       <div class='card small tag left'>
-         <div class="card-image">
+  <div class="hide-on-med-and-down">
+    <div class="">
+      <div class="col s12 m12 l4">
+        <div class='card small tag left'>
+          <div class="card-image">
             <div class="image-inside"></div>
-              <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Trends to Follow</span>
-            </div>
-      <!--  <h5>Trends to Follow</h5> -->
-        <div id="tag_cloud">
-          <% tag_cloud Question.tag_counts.order('count DESC').limit(10), %w[sml med lar] do |tag, css_class| %>
-          <% if tag.name.length <= 11 %>
-          <div class="chip">
-            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-            <i class="material-icons tagicon">add</i>
+            <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Trends to Follow</span>
           </div>
-          <% end %> 
-          <% end %>
+          <!--  <h5>Trends to Follow</h5> -->
+          <div id="tag_cloud">
+            <% tag_cloud Question.tag_counts.order('count DESC').limit(10), %w[sml med lar] do |tag, css_class| %>
+                <% if tag.name.length <= 11 %>
+                    <div class="chip">
+                      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+                      <i class="material-icons tagicon">add</i>
+                    </div>
+                <% end %>
+            <% end %>
 
-        </div>
-        <div class="card-action center">
-          <a class="waves-effect waves-light cyan btn modal-trigger" href="#modaltag">SEE ALL</a>
-          <!-- <a href="./tags_list">SEE ALL</a> -->
+          </div>
+          <div class="card-action center">
+            <a class="waves-effect waves-light cyan btn modal-trigger" href="#modaltag">SEE ALL</a>
+            <!-- <a href="./tags_list">SEE ALL</a> -->
+          </div>
         </div>
       </div>
     </div>
-</div>
   </div>
 
   <%if user_signed_in?%>
 
-  <div class="hide-on-med-and-down fixed">
-   <div class="col s12 m12 l4">
-     <div class='car1 small note right'>
+      <div class="hide-on-med-and-down fixed">
+        <div class="col s12 m12 l4">
+          <div class='car1 small note right'>
 
 
 
 
-  <div class="wrapper">
-   <!--  <aside class="note-wrap note-yellow">
-      <p></p>
-    </aside> -->
-  
-  
-<aside class="note-wrap note-yellow">
-  <%if Note.all.length>0%>
-  <p>  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
-  <hr><%if Note.all.length>=2%>
-  <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
-  </p>
-
-  <br>
-
-   <div class="fixed-action-btn horizontal">
-    <a class="btn-floating btn-large waves-effect waves-light red z-depth-4">
-      <i class="large material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a href="#modaladdnote" class="btn-floating green"><i class="material-icons">mode_edit</i></a></li>
-
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">delete</i></a></li>
-     <li><a href="./notes" class="btn-floating blue"><i class="material-icons">list</i></a></li>
-      <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
-    </ul>
-  </div>
-</aside>
-  </div>
+            <div class="wrapper">
+              <!--  <aside class="note-wrap note-yellow">
+              <p></p>
+            </aside> -->
 
 
+              <aside class="note-wrap note-yellow">
+                <%if Note.all.length>0%>
+                    <p>  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
+                <hr><%if Note.all.length>=2%>
+                    <p><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
+                </p>
 
-<div class="white">
- <%= render :partial => 'layouts/sideques'%>
+                <br>
 
-</div>
+                <div class="fixed-action-btn horizontal">
+                  <a class="btn-floating btn-large waves-effect waves-light red z-depth-4">
+                    <i class="large material-icons">menu</i>
+                  </a>
+                  <ul>
+                    <li><a href="#modaladdnote" class="btn-floating tooltipped green" data-position="bottom" data-delay="50" data-tooltip="Add Note"><i class="material-icons">mode_edit</i></a></li>
+
+                    <li><a class="btn-floating tooltipped yellow darken-1" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="material-icons">delete</i></a></li>
+                    <li><a href="./notes" class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="See All"><i class="material-icons">list</i></a></li>
+                    <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
+                  </ul>
+                </div>
+              </aside>
+            </div>
+            <a class="btn-flat dropdown-button tooltipped waves-effect waves-light white-text" data-position="bottom" data-delay="50" data-tooltip="User" href="#" data-activates="profile-dropdown">MITHU<i class="mdi-navigation-arrow-drop-down right"></i></a>
 
 
-  </div>
-</div>
-</div>
 
-<%end%>
+            <div class="white">
+              <%= render :partial => 'layouts/sideques'%>
 
-<div class="row">
- <div class="col s12 m12 l7">
-  <%= yield %>
-</div>
-</div>
+            </div>
 
 
-<div id="modaladdnote" class="modal">
-  <div class="modal-content">
-    <%= render :partial => 'layouts/modaladdnote'%>
-  </div>
-      <!-- <div class="modal-footer">
-        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-      </div> -->
+          </div>
+        </div>
+      </div>
+
+  <%end%>
+
+  <div class="row">
+    <div class="col s12 m12 l7">
+      <%= yield %>
     </div>
-
   </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
 
-  <script>
+
+  <div id="modaladdnote" class="modal">
+    <div class="modal-content">
+      <%= render :partial => 'layouts/modaladdnote'%>
+    </div>
+    <!-- <div class="modal-footer">
+    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+  </div> -->
+  </div>
+
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
+
+<script>
     $(".button-collapse").sideNav();
-
     $(document).ready(function(){
         $('.dropdown-button').dropdown({
-       inDuration: 300,
-       outDuration: 225,
-       constrainWidth: false, // Does not change width of dropdown to that of the activator
-       hover: true, // Activate on hover
-       gutter: 0, // Spacing from edge
-       belowOrigin: true, // Displays dropdown below the button
-       alignment: 'right', // Displays dropdown with edge aligned to the left of button
-       stopPropagation: false // Stops event propagation
-     }
-   );
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-    $('#modal7').modal();
-    $('#modal7').modal('open');
-    $('.trigger-modal').modal();
-    $('#modal7').modal('close');
-    $('#modaltag').modal();
-    $('#modaltag').modal('open');
-
-    $('#modaltag').modal('close');
-    $('#modaladdnote').modal();
-    $('#modaladdnote').modal('open');
-
-    $('#modaladdnote').modal('close');
-    $('.tooltipped').tooltip({delay: 50});
-
-  });
-
-
+                inDuration: 300,
+                outDuration: 225,
+                constrainWidth: false, // Does not change width of dropdown to that of the activator
+                hover: true, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: true, // Displays dropdown below the button
+                alignment: 'right', // Displays dropdown with edge aligned to the left of button
+                stopPropagation: false // Stops event propagation
+            }
+        );
+// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('#modal7').modal();
+        $('#modal7').modal('open');
+        $('.trigger-modal').modal();
+        $('#modal7').modal('close');
+        $('#modaltag').modal();
+        $('#modaltag').modal('open');
+        $('#modaltag').modal('close');
+        $('#modaladdnote').modal();
+        $('#modaladdnote').modal('open');
+        $('#modaladdnote').modal('close');
+        $('.tooltipped').tooltip({delay: 50});
+    });
 </script>
 
 <script type="text/javascript" charset="utf-8">
-  $(".dropdown-button").dropdown({ hover: true, data-constrainwidth="false"});
-  $.ajax({
-    url: '/notifications.json',
-    success: function(data){
-      console.log("****");
-      console.log(data[1].notifiable.type);
-      console.log("****");
-      var result=data;
-      var notificationList=document.getElementById('dropdown1');
-      for(var i=0;i<data.length;i++){
-        var liElement = document.createElement('li');
-        notificationList.append(liElement);
-        liElement.append(data[i].actor+data[i].action+data[i].notifiable.type);
-//                    liElement.append(data[i].notifiable.type);
-}
-
-},
-error: function(){
-  console.log("some error");
-  console.log(arguments);
-}
-
-});
+    $(".dropdown-button").dropdown({ hover: true, data-constrainwidth="false"});
+    $.ajax({
+        url: '/notifications.json',
+        success: function(data){
+            console.log("****");
+            console.log(data[1].notifiable.type);
+            console.log("****");
+            var result=data;
+            var notificationList=document.getElementById('dropdown1');
+            for(var i=0;i<data.length;i++){
+                var liElement = document.createElement('li');
+                notificationList.append(liElement);
+                liElement.append(data[i].actor+data[i].action+data[i].notifiable.type);
+                //                    liElement.append(data[i].notifiable.type);
+            }
+        },
+        error: function(){
+            console.log("some error");
+            console.log(arguments);
+        }
+    });
 </script>
 </body>
 </html>

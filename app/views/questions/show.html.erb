@@ -11,9 +11,9 @@
   <!--Let browser know website is optimized for mobile-->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
 
-  
 
-    <style type="text/css">
+
+  <style type="text/css">
 
     /* Imports */
     @import url(https://fonts.googleapis.com/css?family=Lato:400,300);
@@ -49,7 +49,7 @@
       /*margin: 0px 20px 0px 10px;*/
       float: left;
       border-radius: 100%;
-     /* background: #aaa;*/
+      /* background: #aaa;*/
     }
     #cardques .card-title h2,  .card-title .wrap > p {
       margin-bottom: 10px;
@@ -65,78 +65,78 @@
       color: #aaa;
       float: left;
     }
-     #cardques .card-title #quesuserdetail{
-margin-left: 65px;
-margin-top: 12px;
+    #cardques .card-title #quesuserdetail{
+      margin-left: 65px;
+      margin-top: 12px;
 
-}
-#cardques .card-title #quesuserdetail h4{
-  font-family: 'Fresca', sans-serif;
-  font-size: 1.5rem;
-line-height: 91%;
-margin: 0;
-}
-#cardques .card-title #quesuserdetail p{
-     font-size: 16px;
-line-height: 91%;
-margin: 0;
-}
-div#quescontent{
-padding-top: 0px;
-padding-bottom: 2px;
-}
-div#quescontent h5{
-margin-top: 0;
-margin-bottom: 3px;
-color: #696a6e;
-}
-div#quescontent p{
-color: #6f6f6f;
-} 
-html body div#mithu.container div.row div.col.s12.m12.l7 div#cardques.card div#quescontent.card-content.grey-text div.row a i.material-icons.right{
- color:#949599;
-}
-html body div#mithu.container div.row div.col.s12.m12.l7 div#cardques.card div#quescontent.card-content.grey-text div.row a i.material-icons.right:hover{
-color:#0091ea;
-}
- </style>
+    }
+    #cardques .card-title #quesuserdetail h4{
+      font-family: 'Fresca', sans-serif;
+      font-size: 1.5rem;
+      line-height: 91%;
+      margin: 0;
+    }
+    #cardques .card-title #quesuserdetail p{
+      font-size: 16px;
+      line-height: 91%;
+      margin: 0;
+    }
+    div#quescontent{
+      padding-top: 0px;
+      padding-bottom: 2px;
+    }
+    div#quescontent h5{
+      margin-top: 0;
+      margin-bottom: 3px;
+      color: #696a6e;
+    }
+    div#quescontent p{
+      color: #6f6f6f;
+    }
+    html body div#mithu.container div.row div.col.s12.m12.l7 div#cardques.card div#quescontent.card-content.grey-text div.row a i.material-icons.right{
+      color:#949599;
+    }
+    html body div#mithu.container div.row div.col.s12.m12.l7 div#cardques.card div#quescontent.card-content.grey-text div.row a i.material-icons.right:hover{
+      color:#0091ea;
+    }
+  </style>
 
 </head>
 <p id="notice"><%= notice %></p>
 
-<div id="cardques" class="card">
- <!--  answer.created_at.strftime("%B %d, %Y")-->
- <div class="card-title">
-  <div class="fakeimage">
-     <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 25)%></div>
+<div id="cardques" class="card hoverable">
+  <!--  answer.created_at.strftime("%B %d, %Y")-->
+  <div class="card-title">
+    <div class="fakeimage">
+      <div class="circle responsive-img valign profile-image"><%=avatar_for(current_user,size: 25)%></div>
+    </div>
+    <div id="quesuserdetail">
+
+      <h4><%= @question.user.name %></h4>
+      <p ><%= time_ago_in_words(@question.created_at) unless @question.created_at.blank? %> ago</p>
+
+    </div>
   </div>
-  <div id="quesuserdetail">
-    
- <h4><%= @question.user.name %></h4>
-  <p ><%= time_ago_in_words(@question.created_at) unless @question.created_at.blank? %> ago</p>
+  <br>
+  <div id="quescontent" class="card-content grey-text">
 
+    <h5 style=" font-family: 'Cantarell, sans-serif';font-size: 22px;font-weight: bold;"><%= @question.title %></h5>
+    <p style="font-family: 'Josefin Slab', serif; font-weight:bold;"><%= @question.content %></p>
+
+
+    <div class="row">
+      <%if can? :update,@question%>
+
+          <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(@question)%>
+      <% end %>.
+      <%if can? :destroy,@question%>
+
+          <%= link_to ('<i class="material-icons right">delete</i>').html_safe, @question, method: :delete, data: {confirm: "Are you sure?"}%>
+
+      <% end %>
+
+    </div>
   </div>
-</div>
-<br>
-<div id="quescontent" class="card-content grey-text">
-
-<h5 style=" font-family: 'Cantarell, sans-serif';font-size: 22px;font-weight: bold;"><%= @question.title %></h5>
- <p style="font-family: 'Josefin Slab', serif; font-weight:bold;"><%= @question.content %></p>
-
-
-  <div class="row">
-    <%if can? :update,@question%>
-   
-    <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(@question)%>
-    <% end %>.
-    <%if can? :destroy,@question%>
-
-    <%= link_to ('<i class="material-icons right">delete</i>').html_safe, @question, method: :delete, data: {confirm: "Are you sure?"}%>
-
-    <% end %>
-
-  </div>
- </div>
 </div>
 
 
@@ -144,23 +144,23 @@ color:#0091ea;
 <div class="createAnswer">
   <%= form_for @answer, :url => answers_path(question_id:@question.id), remote: true do |task|%>
 
-  <% if @answer.errors.any? %>
-  <% @answer.errors.full_messages.each do |message| %>
-  <%= message %>
-  <% end %>
-  <% end %>
+      <% if @answer.errors.any? %>
+          <% @answer.errors.full_messages.each do |message| %>
+              <%= message %>
+          <% end %>
+      <% end %>
 
-  <div class="field">
-    <%= task.label :content %><br>
-  </div>
-  <div>
-    <%= task.cktext_area :content, rows: 10 %>
-  </div>
-  <div class="actions">
-   <%= task.submit id: 'create_answer_submit'%>
+      <div class="field">
+        <%= task.label :content %><br>
+      </div>
+      <div>
+        <%= task.cktext_area :content, rows: 10 %>
+      </div>
+      <div class="actions">
+        <%= task.submit id: 'create_answer_submit'%>
 
- </div>
- <% end %>
+      </div>
+  <% end %>
 
 
 
@@ -174,22 +174,22 @@ color:#0091ea;
 
 
     <% @answerfeed.each do |answer| %>
-    <div class="col s12 m12 l12">
-     <%@comment = Comment.new(answer_id: params[answer.id])%>
-     <% @commentfeed= answer.commentfeed answer.id %>
-     <%= render 'answer' , answer: answer %>
+        <div class="col s12 m12 l12">
+          <%@comment = Comment.new(answer_id: params[answer.id])%>
+          <% @commentfeed= answer.commentfeed answer.id %>
+          <%= render 'answer' , answer: answer %>
 
-   </div>
-   <% end %>
- </div>
+        </div>
+    <% end %>
+  </div>
 
 </div>
 
 
 
 
- <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
 <!-- <script type="text/javascript">
 $(document).ready(function(){
   $('.collapsible1').collapsible({
