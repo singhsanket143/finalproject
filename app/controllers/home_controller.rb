@@ -28,6 +28,7 @@ class HomeController < ApplicationController
               else
                 @feed=current_user.feed
                 @latestfeed=current_user.latestfeed
+               
 
 
                 @tftags=Question.tag_counts_on(:tags).order('count desc').limit(5)
