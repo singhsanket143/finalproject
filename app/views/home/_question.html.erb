@@ -203,14 +203,14 @@ div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.sma
               <% if question.like_string(current_user.id,question.id)== true%>
                   <%= link_to ('<i class="material-icons right">favorite_border</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
               <%else%>
-                  <%= link_to ('<i class="material-icons right">favorite_border</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
+                  <%= link_to ('<i class="material-icons right tooltipped" data-position="bottom" data-delay="50" data-tooltip="Like">favorite_border</i>').html_safe, question_like_path(question), remote:true,method: :post ,id: "like_#{question.id}" %>
               <%end%>
 
               <%if can? :update,question%>
-                  <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(question)%>
+                  <%= link_to ('<i class="material-icons right tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit">create</i>').html_safe, edit_question_path(question)%>
               <%end%>
               <%if can? :destroy,question%>
-                  <%= link_to ('<i class="material-icons right">delete</i>').html_safe, question, method: :delete, data: {confirm: "Are you sure?"}%>
+                  <%= link_to ('<i class="material-icons right tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete">delete</i>').html_safe, question, method: :delete, data: {confirm: "Are you sure?"}%>
               <%end%>
             </div>
           </div>
@@ -220,3 +220,7 @@ div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.sma
     <!-- </div> -->
   </div>
 </div>
+
+<script type="text/javascript">
+  $('.tooltipped').tooltip({delay: 50});
+</script>

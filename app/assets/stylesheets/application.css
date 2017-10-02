@@ -30,9 +30,9 @@
 @charset "UTF-8";
 .navigation {
   height: 70px;
-background: #FAFAFB;
-box-shadow: 0 1px 20px 0 rgba(46,61,73,.2);
-z-index: 8000;
+  background: #FAFAFB;
+  box-shadow: 0 1px 20px 0 rgba(46,61,73,.2);
+  z-index: 8000;
 }
 
 .brand {
@@ -51,11 +51,11 @@ z-index: 8000;
 
 .brand a .image-logo1{
   background: url("re3logo1.jpg") no-repeat 9px 0px;
-height: 70px;
-margin-left: 0px;
-margin-top: 6px;
-width: 70px;
- 
+  height: 70px;
+  margin-left: 0px;
+  margin-top: 6px;
+  width: 70px;
+  
 }
 .nav-container {
   max-width: 90%;
@@ -82,18 +82,18 @@ nav ul li {
 nav ul li a,
 nav ul li a:visited {
   display: block;
-padding: 0 20px;
-line-height: 70px;
-background: #FAFAFB;
-color: #6D6E72;
-text-decoration: none;
-height: 70px;
+  padding: 0 20px;
+  line-height: 70px;
+  background: #FAFAFB;
+  color: #6D6E72;
+  text-decoration: none;
+  height: 70px;
 }
 nav ul li a:hover,
 nav ul li a:visited:hover {
-background: #d1d1d1;
-color: #ffffff;
-border-bottom: 2px solid #F48024;
+  background: #d1d1d1;
+  color: #ffffff;
+  border-bottom: 2px solid #F48024;
 }
 nav ul li a:not(:only-child):after,
 nav ul li a:visited:not(:only-child):after {
@@ -146,6 +146,8 @@ nav#small-device-nav {
   width: 22%;
   margin-top: 43px;
   padding-left: 15px;
+  margin-left: -35px;
+  margin-right: 35px;
 }
 
 .card.small.tag:hover {
@@ -169,16 +171,22 @@ nav#small-device-nav {
   /*font-family: "DejaVu Sans",Verdana, Tahoma, Arial, sans-serif;*/
   font-weight: 450;
   font-size: inherit;
-  line-height: 1.6em;
+  line-height: 28px;
   border: 1px solid #00b8d4;
   background-color: white;
-  height: auto;
+  height: 28px;
   color: #00b8d4 ;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 32px;
 }
 #tag_cloud .chip:hover{
-   background-color: #00b8d4;
-   color: #ffffff;
-/*  background-color: #e0f7fa ;*/
+ background-color: #00b8d4;
+ color: #ffffff;
+ z-index: 8000;
+ /*  background-color: #e0f7fa ;*/
 
 }
 #tag_cloud .chip a{
@@ -291,10 +299,10 @@ nav#small-device-nav {
 
 .image-inside{
  background: url("trendinginside.png") no-repeat 9px 0px;
-height: 142px;
-margin-left: 56px;
-margin-top: 30px;
-width: 150px;
+ height: 142px;
+ margin-left: 56px;
+ margin-top: 30px;
+ width: 150px;
 
 }
 
