@@ -23,10 +23,6 @@
 
 }
 
-
-
-
-
 @charset "UTF-8";
 .navigation {
   height: 70px;
@@ -138,12 +134,19 @@ nav#small-device-nav {
 
 
 
-
+html body div#mithu.container div.col.s12.m12.l4.left.taguser{
+height: 595px;
+  width: 22%;
+  margin-top: 53px;
+  padding-left: 15px;
+  margin-left: -35px;
+  margin-right: 35px;
+}
 
 
 .card.small.tag {
   height: 595px;
-  width: 22%;
+  width: 297px;
   margin-top: 43px;
   padding-left: 15px;
   margin-left: -35px;
@@ -250,6 +253,7 @@ nav#small-device-nav {
   line-height: 34px;
   text-align: center;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  height: 425px;
 }
 .car1.small.note .note-wrap:before {
   display: block;

@@ -86,7 +86,7 @@
     <div class="nav-container hide-on-med-and-down">
 
       <div class="brand">
-        <a href="#!"><div class="image-logo1"></div></a>
+        <a href="/"><div class="image-logo1"></div></a>
       </div>
       <nav id="mininav">   
         <ul class="nav-list">
@@ -109,26 +109,25 @@
 
         </div></li>
         <li>
-          <a href="#!">About</a>
+          <a href="/users_list">All Users</a>
         </li>
         <li>
-          <a href="#!">Services</a>
+          <a href="#!">Read</a>
           <ul class="nav-dropdown">
             <li>
-              <a href="#!">Web Design</a>
+              <a href="/">Trending</a>
             </li>
             <li>
-              <a href="#!">Web Development</a>
+              <a href="/home/index">Latest</a>
             </li>
             <li>
-              <a href="#!">Graphic Design</a>
+              <a href="/home/index">All</a>
             </li>
           </ul>
         </li>
 
         <%if user_signed_in?%>
         <li>
-<%= link_to "Log Out",destroy_user_session_path,method: :delete%></a>
         </li>        
         <%else%>
         <li>
@@ -136,16 +135,16 @@
         </li>
         <%end%>
         <li>
-          <a href="#!">Portfolio</a>
+          <a href="#!"><i class="material-icons right" style="padding-top: 7px;">notifications</i>Notification</a>
           <ul class="nav-dropdown">
             <li>
-              <a href="#!">Web Design</a>
+              <a href="#!"></a>
             </li>
             <li>
-              <a href="#!">Web Development</a>
+              <a href="#!"></a>
             </li>
             <li>
-              <a href="#!">Graphic Design</a>
+              <a href="#!"></a>
             </li>
           </ul>
         </li>
@@ -153,13 +152,22 @@
         <li><a href="#"><%=avatar_for(current_user,size: 25)%></a>
           <ul class="nav-dropdown">
             <li>
+              <a href="/users/<%= current_user.id %>">My Profile</a>
+            </li>
+            <li>
+              <a href="/notes">All Notes</a>
+            </li>
+            <li>
+              <a href="/home/index">All Questions</a>
+            </li>
+             <li>
+              <a href="#!">Chat Room</a>
+            </li>
+             <li>
+              <a href="#!">Rewards</a>
+            </li>
+            <li>
               <%= link_to "Log Out",destroy_user_session_path,method: :delete%></a>
-            </li>
-            <li>
-              <a href="#!">Web Development</a>
-            </li>
-            <li>
-              <a href="#!">Graphic Design</a>
             </li>
           </ul>
         </li>         
@@ -189,7 +197,7 @@
     </ul>
     <div class="left"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a></div>
     <div class="brand center">
-      <a href="#!"><div class="image-logo1"></div></a>
+      <a href="home#indexmain"><div class="image-logo1"></div></a>
     </div>
 
     <!--  <nav id="small-device-nav"class> -->
@@ -290,11 +298,11 @@
     <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
   </div> -->
 </div>
+<div class="col s12 m12 l4 left taguser">
 
-<div class="hide-on-med-and-down">
   <div class="">
-    <div class="col s12 m12 l4">
-      <div class='card small tag left'>
+    <div class="hide-on-med-and-down">
+      <div class='card small tag'>
         <div class="card-image">
           <div class="image-inside"></div>
           <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Trends to Follow</span>
@@ -313,6 +321,28 @@
         </div>
         <div class="card-action center">
           <a class="waves-effect waves-light cyan btn modal-trigger" href="#modaltag">SEE ALL</a>
+          <!-- <a href="./tags_list">SEE ALL</a> -->
+        </div>
+      </div>
+       <div class='card small tag'>
+        <div class="card-image">
+          <div class="image-inside"></div>
+          <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Users to Follow</span>
+        </div>
+        <!--  <h5>Trends to Follow</h5> -->
+        <div id="tag_cloud">
+          <% User.all do |user|%>
+          
+          <div class="chip">
+            <%= user.name %>
+            <i class="material-icons tagicon">add</i>
+          </div>
+        
+          <% end %>
+
+        </div>
+        <div class="card-action center">
+          <a class="waves-effect waves-light cyan btn modal-trigger" href="#">SEE ALL</a>
           <!-- <a href="./tags_list">SEE ALL</a> -->
         </div>
       </div>
@@ -353,7 +383,7 @@
 
             <li><a class="btn-floating tooltipped yellow darken-1 modal-trigger" href="#modalshownote" data-position="bottom" data-delay="50" data-tooltip="Show Note"><i class="material-icons">arrow_drop_down</i></a></li>
 
-            <li><a href="./notes" class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="See All"><i class="material-icons">list</i></a></li>
+            <li><a href="notes" class="btn-floating tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="See All"><i class="material-icons">list</i></a></li>
             <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
           </ul>
         </div>
@@ -505,7 +535,7 @@ $('.mobile-dropdown').on('click', function(){
 </body>
 
 
-<footer class="page-footer grey darken-3">
+<footer class="page-footer grey darken-3" style="bottom: 0px; margin-bottom: -142px;"  >
   <div class="container">
     <div class="row">
       <div class="col l3 s12">
