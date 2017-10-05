@@ -298,6 +298,7 @@
     <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
   </div> -->
 </div>
+  <%if user_signed_in?%>
 <div class="col s12 m12 l4 left taguser">
 
   <div class="">
@@ -349,7 +350,7 @@
     </div>
   </div>
 </div>
-
+<%end%>
 <%if user_signed_in?%>
 
 <div class="hide-on-med-and-down fixed">
