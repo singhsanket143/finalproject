@@ -367,9 +367,9 @@
 
 
       <aside class="note-wrap note-yellow">
-        <%if Note.all.length>0%>
+        <%if Note.where(:user_id => current_user.id).length>0%>
         <p class="truncate">  <%= Note.where(:user_id => current_user.id).last.content %></p><%end%>
-        <hr><%if Note.all.length>=2%>
+        <hr><%if Note.where(:user_id => current_user.id).length>=2%>
         <p class="truncate"><%= Note.where(:user_id => current_user.id)[-2].content %><%end%>
         </p>
 

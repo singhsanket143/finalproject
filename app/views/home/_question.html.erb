@@ -171,7 +171,7 @@ div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.sma
     <div class="card ques hoverable" elevation="2">
       <div class="card-title">
         <figure elevation="1">
-          <%=avatar_for(current_user,size: 25)%>
+          <%=avatar_for(question.user,size: 45)%>
         </figure>
         <div class="text small">
           <h1 style="font-family: 'Fresca', sans-serif;"><%= question.user.name %></h1>
