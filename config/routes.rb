@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   resources :answers do
     post 'like',   to: 'socializations#likeAnswer'
   end
-  resources :subtrends do
-    post 'follow', to: 'socializations#follow'
+  resources :trends do
+    post 'follow', to: 'socializations#followTrend'
   end
   resources :users do
     post 'follow', to: 'socializations#follow'

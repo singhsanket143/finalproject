@@ -184,10 +184,10 @@ div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.sma
 
  <% if question.answers.first != nil %>
         <% ans = question.answers.first %>
-        <p style="font-family: 'Josefin Slab', serif;" class="truncate"><%= raw ans.content %></p>
+        <p style="font-family: 'Josefin Slab', serif;" ><%= raw ans.content.truncate(500) %></p><br>
 
 <% end %>
-
+        <br>
         <p style=" font-family: 'Capriola, sans-serif';font-size: 14px;">Tags:  <%= raw question.tag_list.map { |t| link_to t , tag_path(t) }.join(', ') %></p>
 
 

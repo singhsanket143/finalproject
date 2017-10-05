@@ -7,6 +7,8 @@ class HomeController < ApplicationController
         @question = Question.new
         # byebug
         if params[:tag]
+          @trend=Trend.where(name: params[:tag]).first
+          # byebug
           @feed = Question.tagged_with(params[:tag]).paginate(:per_page => 20, :page => params[:page])
         elsif params[:search]
           @feed=Question.search(params[:search]).paginate(:per_page => 20, :page => params[:page])

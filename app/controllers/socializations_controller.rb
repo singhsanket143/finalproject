@@ -23,6 +23,21 @@ class SocializationsController < ApplicationController
       format.js {}
     end
   end
+  def followTrend
+    @trending=Trend.find(params[:trend_id])
+    follow=Follow.where(followable_type: "Trend",follower_id: current_user.id,followable_id: @trending.id).first
+
+    if follow
+      current_user.toggle_follow!(@socializable)
+      @is_followed=false
+    else
+      current_user.toggle_follow!(@socializable)
+      @is_followed=true
+    end
+    respond_to do |format|
+      format.js {}
+    end
+  end
 
   def like
     @question=Question.find(params[:question_id])
@@ -68,8 +83,8 @@ class SocializationsController < ApplicationController
             User.find(id)
           when id = params[:answer_id]
             Answer.find(id)
-          when id = params[:maintrend_id]
-            Maintrend.find(id)
+          when id = params[:trend_id]
+            Trend.find(id)
 
           when id = params[:subtrend_id]
             Subtrend.find(id)

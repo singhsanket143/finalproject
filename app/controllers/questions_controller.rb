@@ -46,7 +46,14 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
-
+    list_of_tags=question_params["tag_list"].split(",")
+    list_of_tags.each do |tag|
+      if Question.tagged_with(tag).length ==0
+        var=Trend.new
+        var.name=tag
+        var.save!
+      end
+    end
     respond_to do |format|
       if @question.save
         Resque.enqueue(QuestionMailer,@question.id,current_user.id)

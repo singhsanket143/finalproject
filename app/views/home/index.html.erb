@@ -87,7 +87,18 @@ cursor: default; }
       </div>
     </a>
     <div class="row">
+      <% unless @trend.nil? %>
+          <div class="chip" style="margin-top: 25px;margin-left: 50px;font-size: 30px;">
+           <%=@trend.name%>
+          </div>
 
+          <% if @trend.follow_string(current_user.id,@trend.id)== true%>
+              <%= link_to(('<span class="">Unfollow</span>').html_safe, trend_follow_path(@trend), remote:true,method: :post,id: "follow_#{@trend.id}",:class =>"waves-effect waves-light btn") %>
+          <%else%>
+              <%= link_to(('<span class="">follow</span>').html_safe, trend_follow_path(@trend), remote:true,method: :post,id: "follow_#{@trend.id}",:class =>"waves-effect waves-light btn") %>
+          <%end%>
+
+      <%end%>
       <% @feed.each do |question| %>
        <!-- <div class="col s12 m12 l12"> -->
       <%= render 'question' , question: question %>

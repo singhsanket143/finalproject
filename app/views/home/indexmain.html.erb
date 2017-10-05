@@ -74,6 +74,7 @@ overflow-x: hidden;
     </a>
   <div id="questions">
     <div class="row">
+
       <% @latestfeed.each do |question| %>
        <!-- <div class="col s12 m12 l12"> -->
       <%= render 'question' , question: question %>
