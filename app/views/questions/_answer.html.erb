@@ -111,6 +111,12 @@
     html body div#mithu.container div.row div.col.s12.m12.l7 div#answers div.row div.col.s12.m12.l12 div.answer div.userDetail div.card div.card-content.grey-text.text-darken-3 div.row a i.material-icons.right:hover{
       color:#0091ea;
     }
+    html body div#mithu.container div.row div.col.s12.m12.l7 div#answers div#modal1.modal.modal-fixed-footer.open div.modal-footer{
+      height: 122px;
+    }
+.modal .modal-footer .btn-flat{
+      background-color: #81d4fa;
+    }
   </style>
 
 </head>
@@ -140,7 +146,7 @@
           <%if can? :update,answer%>
               <%= link_to ('<i class="material-icons tooltipped right" data-position="bottom" data-delay="50" data-tooltip="Edit Answer">create</i>').html_safe, answer %>
 
-          <% end %>.
+          <% end %>
           <%if can? :destroy,answer%>
 
               <%= link_to ('<i class="material-icons tooltipped right" data-position="bottom" data-delay="50" data-tooltip="Delete">delete</i>').html_safe, answer, method: :delete, data: {confirm: "Are you sure?"}%>
@@ -177,7 +183,7 @@
   <div class="modal-footer">
     <div class="createComment">
       <%= form_for @comment, :url => comments_path(answer_id:answer.id), remote: true do |task|%>
-          <%= task.label :content %><br>
+          <%= task.label :comment %><br>
           <%= task.text_area :content %><br>
           <div class="actions">
             <%= task.submit id: 'create_comment_submit', class:"modal-action modal-close waves-effect waves-green btn-flat"%>

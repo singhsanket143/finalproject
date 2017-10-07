@@ -147,7 +147,7 @@ z-index: 8000;
       <%if can? :update,@question%>
 
           <%= link_to ('<i class="material-icons right">create</i>').html_safe, edit_question_path(@question)%>
-      <% end %>.
+      <% end %>
       <%if can? :destroy,@question%>
 
           <%= link_to ('<i class="material-icons right">delete</i>').html_safe, @question, method: :delete, data: {confirm: "Are you sure?"}%>
