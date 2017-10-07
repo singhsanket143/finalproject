@@ -1,27 +1,16 @@
-<!-- <div class="row"> -->
-<div class="col l12 m12 s12">
-  <div class="user-profile">
-    <%=avatar_for(current_user,size: 80)%>
-    <div class="username"><%=user.email%></div>
-    <div class="bio">
-      <%= link_to('follow', user_follow_path(user), remote:true,method: :post) %>
-    </div>
-    <div class="description">
-      I use to design websites and applications
-      for the web.
-    </div>
-    <ul class="data">
-      <li>
-        <span class="entypo-heart"> 127</span>
-      </li>
-      <li>
-        <span class="entypo-eye"> 853</span>
-      </li>
-      <li>
-        <span class="entypo-user"> 311</span>
-      </li>
-    </ul>
-  </div>
-</div>
+
 <!-- </div> -->
 
+<figure class="snip1515 hoverable">
+  <div class="profile-image"><%=avatar_for(current_user,size: 70)%></div>
+  <figcaption>
+    <h3><%=user.name %></h3>
+    <h4>Public Relations</h4>
+    <p>The only skills I have the patience to learn are those that have no real application in life. </p>
+    <div class="icons"><a href="#"><i class="ion-social-reddit"></i></a>
+     <%= link_to('follow', user_follow_path(user), remote:true,method: :post) %>
+      <a href="#"> <i class="ion-social-twitter"></i></a>
+      <a href="#"> <i class="ion-social-vimeo"></i></a>
+    </div>
+  </figcaption>
+</figure>
