@@ -45,10 +45,15 @@ class HomeController < ApplicationController
   end
 
   def users_list
-    @users=User.all
+   respond_to do |format|
+    format.html {
+      @users=User.all
+    }
+    format.js {}
   end
+end
 
-  def tags_list
+def tags_list
 
-  end
+end
 end
