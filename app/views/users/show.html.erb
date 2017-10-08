@@ -19,6 +19,7 @@
     }
     .card1 .rowone{
       padding: 20px;
+background-image: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
 
     }
     .card1 .rowone .first,    .card1 .rowone .second{
@@ -61,6 +62,10 @@
       color: #fff;
       cursor:pointer;
     }
+    html body div#mithu.container div.row div.col.s12.m12.l7 div div.col.l12 div.card1.z-depth-4 div.row.rowone div.col.s12.l6.first div.col.l8.s12.desc{
+      padding-left: 40px;
+      color: #5d5555;
+    }
     .card1 .rowone .first img {
       border-radius: 50%;
       /*    margin: 0 20px;*/
@@ -79,7 +84,7 @@
     }
 
     .card1 .rowone .second .col span {
-      color: #a2a2a2;
+      color: #878080;
       font-size: 14px;
     }
     .card1 .rowone .second .col h1 {
@@ -92,7 +97,7 @@
     .card1 .rowone .second .col {
       text-align: center;
       line-height: 30px;
-      border-right: 1px solid #ccc;
+      border-right: 1px solid #9c9797;
     }
     .card1 .rowone .second .col.three {
       border-right: 0;
@@ -144,8 +149,9 @@
     #tabs-swipe-demo a{color:#d32f2f;
     }
     #tabs-swipe-demo a.active{
-      background-color: #FFAB40 ;
+      /*background-color: #FFAB40 ;*/
       color:#fff;
+      background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
     }
     #tabs-swipe-demo a:hover{
       background-color: #ffecb3 ;
@@ -162,7 +168,7 @@
           <div class="col l3 s12"><%= avatar_for(@user,size: 25) %></div>
           <!-- <div class="col l3 s12"><img src="http://images.contactmusic.com/newsimages/david_beckham_1133321.jpg" alt=""></div> -->
           <div class="col l8 s12 desc">    <h3><%= @user.name %></h3>
-            <span class="spanfollow">Follow</span>
+           <!--  <span class="spanfollow">Follow</span> -->
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
           </div>
 
@@ -199,13 +205,13 @@
 
         <%@question.each do |q|%>
             <!-- <div class="row s12"> -->
-            <div class="col s12 m6 ">
-              <div class="card red lighten-1 z-depth-4 hoverable">
+            <div class="col s12 m12 l6 ">
+              <div class="card z-depth-4 hoverable" style="background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);">
                 <div class="card-content white-text">
                   <span class="card-title truncate"><%=q.title%></span>
                   <p class="truncate"><%=q.content%></p>
                 </div>
-                <div class="card-action">
+                <div class="card-action" style="background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);">
                   <%= link_to 'Show', q ,params[id: q.id]%>
                   <div class="right">
                     <%if can? :update,q%>
@@ -226,13 +232,14 @@
     <div id="ans-swipe-2" class="col s12">
       <%@answer.each do |a|%>
           <!-- <div class="row s12"> -->
-          <div class="col s12 m6">
-            <div class="card red lighten-1 z-depth-4 hoverable">
+          <div class="col s12 m12 l6">
+            <div class="card z-depth-4 hoverable" style="background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);">
               <div class="card-content white-text">
                 <span class="card-title truncate"><%=a.question.title%></span>
-                <p class="truncate"><%=raw a.content%></p>
+                 
+                <p class="truncate"><%= raw a.content.truncate(100) %></p>
               </div>
-              <div class="card-action">
+              <div class="card-action" style="background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);">
                 <%= link_to 'Show', a ,params[id: a.id]%>
                 <div class="right">
                   <%if can? :update,a%>
@@ -255,7 +262,7 @@
           <%= f.email%>
       <%end%>
     </div>
-    <div id="profile-swipe-4 hoverable" class="col s12">
+    <div id="profile-swipe-4" class="col s12">
       <%= render :partial => 'users/edit'%>
     </div>
   </div>
