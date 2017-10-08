@@ -199,12 +199,9 @@
             <label>
               First Name<span class="req">*</span>
             </label>
-            <input type="text" required autocomplete="off" />
+            <%=f.text_field :name, autofocus: true%>
           </div>
-
-
         </div>
-
         <div class="field-wrap">
           <label>
             Email Address<span class="req">*</span>
