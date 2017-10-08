@@ -23,6 +23,21 @@ class SocializationsController < ApplicationController
       format.js {}
     end
   end
+    def followUser
+    @user = User.find(params[:user_id])
+    follow=Follow.where(followable_type: "User",follower_id: current_user.id,followable_id: @user.id).first
+
+    if follow
+      current_user.toggle_follow!(@socializable)
+      @is_followed=false
+    else
+      current_user.toggle_follow!(@socializable)
+      @is_followed=true
+    end
+    respond_to do |format|
+      format.js {}
+    end
+  end
   def followTrend
     @trending=Trend.find(params[:trend_id])
     follow=Follow.where(followable_type: "Trend",follower_id: current_user.id,followable_id: @trending.id).first

@@ -1,114 +1,107 @@
+<style type="text/css">
+  
+  @import url(https://fonts.googleapis.com/css?family=Open+sans);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+.snip1515 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  float: left;
+  margin: 10px 1%;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #000000;
+  text-align: center;
+  line-height: 1.4em;
+  font-size: 14px;
+  box-shadow: none !important;
+}
 
-<style>
-  /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-  /* CSS design by @jofpin */
-  @import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
-  @import url(http://weloveiconfonts.com/api/?family=entypo);
+.snip1515:hover{
+z-index: 8000;
+    box-shadow: 0 12px 12px rgba(0, 0, .6, .6);
 
-  [class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-  }
+}
 
-  body {
+.snip1515 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  }
+.snip1515 .profile-image {
+  display: inline-block;
+  width: 80%;
+  z-index: 1;
+  position: relative;
+  padding: 10px;
+ /* border: 2px solid #e8b563;*/
+}
 
-  .title-pen {
-    color: #333;
-    font-family: "Coda", sans-serif;
-    text-align: center;
-  }
-  .title-pen span {
-    color: #55acee;
-  }
+.snip1515 .profile-image img {
+  max-width: 100%;
+  vertical-align: top;
+}
 
-  .user-profile {
-    margin: auto;
-    width: 25em;
-    height: 11em;
-    background: #fff;
-    border-radius: .3em;
-  }
+.snip1515 figcaption {
+  width: 100%;
+  background-color: #F2F2F2;
+  color: #555;
+  padding: 125px 25px 25px;
+  margin-top: -100px;
+  display: inline-block;
+}
 
-  .user-profile  .username {
-    margin: auto;
-    position: absolute;
-    margin-top: -4.40em;
-    margin-left: 5.80em;
-    color: #658585;
-    font-size: 1.2em;
-    font-family: "Coda", sans-serif;
-    font-weight: bold;
-  }
-  .user-profile  .bio {
-    margin: auto;
-    display: inline-block;
-    margin-left: 10.43em;
-    color: #e76043;
-    font-size: .87em;
-    font-family: "varela round", sans-serif;
-  }
-  .user-profile > .description {
-    margin: auto;
-    margin-top: 1.35em;
-    margin-right: 4.43em;
-    width: 14em;
-    color: #c0c5c5;
-    font-size: .87em;
-    font-family: "varela round", sans-serif;
-  }
-  .user-profile > img.avatar {
-    padding: .7em;
-    margin-left: .3em;
-    margin-top: .3em;
-    height: 6.23em;
-    width: 6.23em;
-    border-radius: 18em;
-  }
+.snip1515 h3,
+.snip1515 h4,
+.snip1515 p {
+  margin: 0 0 5px;
+}
 
-  .user-profile ul.data {
-    margin: 2em auto;
-    height: 3.70em;
-    background: #4eb6b6;
-    text-align: center;
-    border-radius: 0 0 .3em .3em;
-  }
-  .user-profile li {
-    margin: 0 auto;
-    padding: 1.30em;
-    width: 33.33334%;
-    display: table-cell;
-    text-align: center;
-  }
+.snip1515 h3 {
+  font-weight: 600;
+  font-size: 1.3em;
+  font-family: 'Playfair Display', Arial, sans-serif;
+}
 
-  .user-profile span {
-    font-family: "varela round", sans-serif;
-    color: #e3eeee;
-    white-space: nowrap;
-    font-size: 1.27em;
-    font-weight: bold;
-  }
-  .user-profile span:hover {
-    color: #daebea;
-  }
+.snip1515 h4 {
+  color: #8c8c8c;
+  font-weight: 400;
+  letter-spacing: 2px;
+   font-size: 1.0em;
+}
 
-  footer > h1 {
-    display: block;
-    text-align: center;
-    clear: both;
-    font-family: "Coda", sans-serif;
-    color: #343f3d;
-    line-height: 6;
-    font-size: 1.6em;
-  }
-  footer > h1 a {
-    text-decoration: none;
-    color: #ea4c89;
-  }
+.snip1515 p {
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.snip1515 .icons {
+  text-align: center;
+  width: 100%;
+}
+
+.snip1515 i {
+  padding: 10px 2px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: normal;
+  color: #e8b563;
+  opacity: 0.75;
+}
+
+.snip1515 i:hover {
+  opacity: 1;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+
 </style>
-<div class="row">
+<div id="users">
 <% @users.each do |u| %>
-      <%= render 'user_list', user: u%>
+      <%= render 'user_list', user: u %>
 
 <%end%>
  </div>

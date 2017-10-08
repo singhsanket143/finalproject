@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hackquora</title>
+  <title>AskKaro</title>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -132,72 +132,123 @@
         <%else%>
         <li>
          <a class="waves-effect modal-trigger" href="#modal7">Log In</a>
-        </li>
-        <%end%>
-        <li>
-          <a href="#!"><i class="material-icons right" style="padding-top: 7px;">notifications</i>Notification</a>
-          <ul class="nav-dropdown">
-            <li>
-              <a href="#!"></a>
-            </li>
-            <li>
-              <a href="#!"></a>
-            </li>
-            <li>
-              <a href="#!"></a>
-            </li>
-          </ul>
-        </li>
-        <%if user_signed_in?%>
-        <li><a href="#"><%=avatar_for(current_user,size: 25)%></a>
-          <ul class="nav-dropdown">
-            <li>
-              <a href="/users/<%= current_user.id %>">My Profile</a>
-            </li>
-            <li>
-              <a href="/notes">All Notes</a>
-            </li>
-            <li>
-              <a href="/home/index">All Questions</a>
-            </li>
-             <li>
-              <a href="#!">Chat Room</a>
-            </li>
-             <li>
-              <a href="#!">Rewards</a>
-            </li>
-            <li>
-              <%= link_to "Log Out",destroy_user_session_path,method: :delete%></a>
-            </li>
-          </ul>
-        </li>         
-        <%else%>
-        <%end%>
-      </ul>
-    </nav>
+       </li>
+       <%end%>
+       <li>
+        <a href="#!"><i class="material-icons right" style="padding-top: 7px;">notifications</i>Notification</a>
+        <ul class="nav-dropdown">
+          <li>
+            <a href="#!"></a>
+          </li>
+          <li>
+            <a href="#!"></a>
+          </li>
+          <li>
+            <a href="#!"></a>
+          </li>
+        </ul>
+      </li>
+      <%if user_signed_in?%>
+      <li><a href="#"><%=avatar_for(current_user,size: 25)%></a>
+        <ul class="nav-dropdown">
+          <li>
+            <a href="/users/<%= current_user.id %>">My Profile</a>
+          </li>
+          <li>
+            <a href="/notes">All Notes</a>
+          </li>
+          <li>
+            <a href="/home/index">All Questions</a>
+          </li>
+          <li>
+            <a href="#!">Chat Room</a>
+          </li>
+          <li>
+            <a href="#!">Rewards</a>
+          </li>
+          <li>
+            <%= link_to "Log Out",destroy_user_session_path,method: :delete%></a>
+          </li>
+        </ul>
+      </li>         
+      <%else%>
+      <%end%>
+    </ul>
+  </nav>
 
-  </div>
+</div>
 
-  <div class="nav-container hide-on-large-only">
+<div class="nav-container hide-on-large-only">
 
-    <ul id="slide-out" class="side-nav">
-      <li><div class="user-view">
-        <div class="background">
+ <!--  <div class="left"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a></div> -->
+ <!-- <div style="width: 10px;"> -->
+ <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+ <!-- </div> -->
+
+ <ul class="side-nav white" id="mobile-demo">
+  <!-- <ul id="slide-out" class="side-nav"> -->
+  <li class="sidenav-header light-blue accent-4 center"><div class="user-view">
+       <!--  <div class="background">
           <img src="images/office.jpg">
-        </div>
-        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-        <a href="#!name"><span class="white-text name">John Doe</span></a>
-        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-      </div></li>
+        </div> -->
+        <%if user_signed_in?%>
+        <a class="left" href="#!user"><%=avatar_for(current_user,size: 20)%></a>
+        <a href="#!name"><span class="white-text name"><%= current_user.name %></span></a>
+        <a href="#!email"><span class="white-text email"><%= current_user.email %></span></a>
+        <% end %>
+        <ul class="hide-on-med-and-up">
+          <%if user_signed_in?%>
+          <li><a class="dropdown-button white-text" data-activates="dropdown2"><i class="material-icons white-text ">person</i>Profile<i class="material-icons right white-text"style="margin-right:0;">arrow_drop_down</i></a></li>
+          <% end %>
+        </ul>
+        <ul id="dropdown2" class="dropdown-content white-text">
+         <%if user_signed_in?%>
+         <li><a class="waves-effect waves-blue" href="/users/<%= current_user.id %>"><i class="material-icons">person</i>Profile</a></li>
+         <% end %>
+         <li class="divider"></li>
+         <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">settings</i>Settings</a></li>
+         <li class="divider"></li>
+         <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">help</i>Help</a></li>
+         <li class="divider"></li>
+         <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">lock</i>Lock</a></li>
+         <li class="divider"></li>
+         <%if user_signed_in?%>
+         <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">exit_to_app</i><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
+         <li class="divider"></li>
+         <%else%>
+         <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign in</a></li>
+         <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign up</a></li>
+
+         <%end%>
+       </ul>
+
+     </div>
+   </li>
+   <%if user_signed_in?%>
+   <li><a class="waves-effect waves-blue" href="#"><%= link_to "Sign Out",destroy_user_session_path,method: :delete%></a></li>
+   <li class="divider"></li>
+   <%else%>
+   <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign in</a></li>
+   <li><a class="waves-effect waves-light btn modal-trigger" href="#modal7">sign up</a></li>
+
+   <%end%>
+   <li class="waves-effect"><a href="/notes"><i class="material-icons">note</i>All Notes</a></li>
+   <li><div class="divider"></div></li>
+   <li class="waves-effect"><a href="/home/index"><i class="material-icons">help</i>All Questions</a></li>
+   <li><div class="divider"></div></li>
+   <li class="waves-effect"><a href="#!"><i class="material-icons">question_answer</i>Chat Room</a></li>
+   <li><div class="divider"></div></li>
+   <li class="waves-effect"><a href="#!"><i class="material-icons">star</i>Rewards</a></li>
+    <!--   <li><div class="divider"></div></li>
       <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
       <li><a href="#!">Second Link</a></li>
       <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      <li></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
+
     </ul>
-    <div class="left"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a></div>
     <div class="brand center">
-      <a href="home#indexmain"><div class="image-logo1"></div></a>
+      <a href="/"><div class="image-logo1" style="margin-left: 47px;margin-top: -21px;"></div></a>
     </div>
 
     <!--  <nav id="small-device-nav"class> -->
@@ -215,6 +266,7 @@
           <a href="#!">Graphic Design</a>
         </li>
       </ul>
+
     </li>         
     <%else%>
     <%end%>
@@ -224,60 +276,6 @@
 </div>
 </section>
 </div>
-
-
-
-<script type="text/javascript">
-
-  (function($) { // Begin jQuery
-  $(function() { // DOM ready
-    // If a link has a dropdown, add sub menu toggle.
-    $('nav ul li a:not(:only-child)').click(function(e) {
-      $(this).siblings('.nav-dropdown').toggle();
-      // Close one dropdown when selecting another
-      $('.nav-dropdown').not($(this).siblings()).hide();
-      e.stopPropagation();
-    });
-    // Clicking away from dropdown will remove the dropdown class
-    $('html').click(function() {
-      $('.nav-dropdown').hide();
-    });
-    // Toggle open and close nav styles on click
-    $('#nav-toggle').click(function() {
-      $('nav ul').slideToggle();
-    });
-    // Hamburger to X toggle
-    $('#nav-toggle').on('click', function() {
-      this.classList.toggle('active');
-    });
-  }); // end DOM ready
-})(jQuery); // end jQuery
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -298,11 +296,12 @@
     <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
   </div> -->
 </div>
-  <%if user_signed_in?%>
-<div class="col s12 m12 l4 left taguser">
+<%if user_signed_in?%>
+<div class="hide-on-med-and-down">
+  <div class="col s12 m12 l4 left taguser">
 
-  <div class="">
-    <div class="hide-on-med-and-down">
+    <div class="">
+
       <div class='card small tag'>
         <div class="card-image">
           <div class="image-inside"></div>
@@ -325,30 +324,45 @@
           <!-- <a href="./tags_list">SEE ALL</a> -->
         </div>
       </div>
-       <div class='card small tag'>
+      <div class='card small userf'>
         <div class="card-image">
           <div class="image-inside"></div>
           <span class="card-title" style="font-size: 28px;font-weight: 800;font-family: Fresca,sans-serif;">Users to Follow</span>
         </div>
         <!--  <h5>Trends to Follow</h5> -->
-        <div id="tag_cloud">
-          <% User.all do |user|%>
-          
-          <div class="chip">
-            <%= user.name %>
-            <i class="material-icons tagicon">add</i>
-          </div>
-        
-          <% end %>
+        <div id="user_cloud">
+         <% User.all.each do |user|%> 
+         <%if user != current_user%>
+         <div class="userfollow">
+         <figure><a href="#"><%=avatar_for(current_user,size: 25)%></a></figure>
+         
+          <div class="usertext">
+            <h5 class="" style="font-size: 1.2em; top: 2px;font-family: 'Fresca', sans-serif;"><%= user.name %></h5>
+            <div class="chip">
+             <!--          <i class="material-icons tagicon">add</i> -->
+             <% if user.follow_string(current_user.id,user.id)== true%>
+             <%= link_to('Unfollow', user_follow_path(user), remote:true,method: :post,id: "follow_#{user.id}") %>
+             <%else%>
+             <%= link_to('follow', user_follow_path(user), remote:true,method: :post,id: "follow_#{user.id}") %>
+             <%end%>
 
-        </div>
-        <div class="card-action center">
-          <a class="waves-effect waves-light cyan btn modal-trigger" href="#">SEE ALL</a>
-          <!-- <a href="./tags_list">SEE ALL</a> -->
-        </div>
-      </div>
+           </div>
+         </div>
+
+       </div>
+
+       <% end %> 
+
+       <% end %> 
+       <!--  -->
+     </div>
+     <div class="card-action center">
+      <a class="waves-effect waves-light cyan btn modal-trigger" href="#">SEE ALL</a>
+      <!-- <a href="./tags_list">SEE ALL</a> -->
     </div>
   </div>
+</div>
+</div>
 </div>
 <%end%>
 <%if user_signed_in?%>
@@ -463,7 +477,7 @@
         </span>
       </div>
       <div class="col s12 m6 l1">
-      <span class="white-text">
+        <span class="white-text">
           <i class="fa fa-facebook medium"></i>
         </span>
       </div>
@@ -481,23 +495,14 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
 
 <script>
-
-  $(".button-collapse").sideNav({
-      // menuWidth: 300, // Default is 300
-      // edge: 'right', // Choose the horizontal origin
-      // closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      // draggable: true, // Choose whether you can drag to open on touch screens,
-
-    }
-    );
+ $(".button-collapse").sideNav();
 
 
+ $(document).ready(function(){
 
-  $(document).ready(function(){
-
-    $('.dropdown-button').dropdown({
-     inDuration: 300,
-     outDuration: 225,
+  $('.dropdown-button').dropdown({
+   inDuration: 300,
+   outDuration: 225,
      constrainWidth: false, // Does not change width of dropdown to that of the activator
      hover: true, // Activate on hover
      gutter: 0, // Spacing from edge
@@ -531,6 +536,35 @@ $('.tooltipped').tooltip({delay: 50});
 
 
 </script>
+
+<!-- for dropdown  -->
+<script type="text/javascript">
+
+  (function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+</script>
+
 
 <script type="text/javascript" charset="utf-8">
   $(".dropdown-button").dropdown({ hover: true, data-constrainwidth="false"});

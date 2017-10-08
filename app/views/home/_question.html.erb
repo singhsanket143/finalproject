@@ -171,7 +171,7 @@ div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.sma
     <div class="card ques hoverable" elevation="2">
       <div class="card-title">
         <figure elevation="1">
-          <%=avatar_for(question.user,size: 45)%>
+          <%=avatar_for(question.user,size: 20)%>
         </figure>
         <div class="text small">
           <h1 style="font-family: 'Fresca', sans-serif;"><%= question.user.name %></h1>
@@ -184,11 +184,15 @@ div.question div.userDetail div.card.ques.hoverable div.supporting_text.text.sma
 
  <% if question.answers.first != nil %>
         <% ans = question.answers.first %>
+
             <p style="font-family: 'Josefin Slab', serif;" ><%= raw ans.user.name %></p><br>
         <p style="font-family: 'Josefin Slab', serif;" ><%= raw ans.content.truncate(500) %></p><br>
 
+        <p style="font-family: 'Josefin Slab', serif;" ><%= raw ans.content.truncate(500) %></p>
+
+
 <% end %>
-        <br>
+      
         <p style=" font-family: 'Capriola, sans-serif';font-size: 14px;">Tags:  <%= raw question.tag_list.map { |t| link_to t , tag_path(t) }.join(', ') %></p>
 
 

@@ -1,6 +1,7 @@
 <div class="comment">
   <div class="userDetail">
-    <%= comment.user.email %>
+  <%=avatar_for(current_user,size: 20)%>
+    <%= comment.user.name %>
     <br>
     <%= comment.content %>
     <br>
