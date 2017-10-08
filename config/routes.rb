@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     post 'like',   to: 'socializations#like'
     post 'follow', to: 'socializations#followQuestion'
   end
+
   resources :answers do
     post 'like',   to: 'socializations#likeAnswer'
   end
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
     post 'follow', to: 'socializations#followTrend'
   end
   resources :users do
-    post 'follow', to: 'socializations#follow'
+    post 'follow', to: 'socializations#followUser'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
