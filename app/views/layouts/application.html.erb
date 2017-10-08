@@ -136,7 +136,7 @@
        <%end%>
        <li>
         <a href="#!"><i class="material-icons right" style="padding-top: 7px;">notifications</i>Notification</a>
-        <ul class="nav-dropdown">
+        <ul id="dropdownnoty" class="nav-dropdown">
           <li>
             <a href="#!"></a>
           </li>
@@ -575,7 +575,7 @@ $('.tooltipped').tooltip({delay: 50});
       console.log(data[1].notifiable.type);
       console.log("****");
       var result=data;
-      var notificationList=document.getElementById('dropdown1');
+      var notificationList=document.getElementById('dropdownnoty');
       for(var i=0;i<data.length;i++){
         var liElement = document.createElement('li');
         notificationList.append(liElement);
