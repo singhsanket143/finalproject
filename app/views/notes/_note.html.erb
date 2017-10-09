@@ -1,0 +1,105 @@
+<style type="text/css">
+  
+
+
+
+
+.carall.wrapper {
+  font-family:sans;
+  margin: auto 0 auto;
+}
+
+/* Note styles */
+.carall.wrapper .note-wrap {
+  width: 235px;
+  min-height: 235px;
+  padding: 8px;
+  padding-top: 15px;
+  margin: 0 22px 44px 22px;
+  position: relative;
+  font-size: 24px;
+  vertical-align: top;
+  display: inline-block;
+  font-family: Englebert, Arial;
+  color: #4b453c;
+  background: #F7E999;
+  line-height: 34px;
+  text-align: center;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+.carall.wrapper .note-wrap:before {
+  display: block;
+  content: "";
+  background: rgba(227, 200, 114, 0.4);
+  width: 130px;
+  height: 28px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 6px/18px 0;
+  position: absolute;
+  top: -13px;
+  left: 50px;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+
+.carall.wrapper .note-blue {
+  background: #b9dcf4;
+ 
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+
+.carall.wrapper .note-yellow {
+   background: #F7E999;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+.carall.wrapper .note-yellow .fixed-action-btn{
+  right: 2px;
+  bottom: 2px;
+
+}
+</style>
+      <div class="col s12 m6">
+
+
+
+       <div class="carall wrapper">
+
+<aside class="note-wrap note-yellow">
+ <h5><%= time_ago_in_words(note.created_at) unless note.created_at.blank? %> ago</h5>
+
+  <p><%= note.content %></p>
+
+  <br>
+
+   <div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large waves-effect waves-light red z-depth-4">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a href="#modaladdnote" class="btn-floating green"><i class="material-icons">mode_edit</i></a></li>
+
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">delete</i></a></li>
+     <li><a href="./notes" class="btn-floating blue"><i class="material-icons">list</i></a></li>
+      <!--  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> -->
+    </ul>
+  </div>
+</aside>
+  </div>
+    <%= link_to 'Edit', edit_note_path(note) %>
+             <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+          
+        </div>
+      
+
+       

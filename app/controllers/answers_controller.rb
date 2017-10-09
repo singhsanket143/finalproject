@@ -40,11 +40,12 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
     respond_to do |format|
       if @answer.save
-        # byebug
+
+         Resque.enqueue(AnswerMailer,@answer.id,current_user.id)
         (@question.users.uniq-[current_user]).each do |user|
           Notification.create(recipient: user,actor: current_user,action: "Posted",notifiable: @answer)
         end
-        UserMailer.new_answer(@answer).deliver_now
+       
         format.html {redirect_to 'home/questions/', notice: 'Answer was successfully created.'}
         format.js {}
         @comment = Comment.new(answer_id: params[@answer.id])

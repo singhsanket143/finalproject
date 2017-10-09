@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
-
+gem "ckeditor"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -17,6 +18,9 @@ gem 'activeadmin'
 gem 'will_paginate'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'ckeditor'
+gem 'paperclip'
+gem 'unicorn'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -26,9 +30,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "socialization"
 gem 'cancancan', '~> 2.0'
+gem 'acts-as-taggable-on'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem "resque"
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'carrierwave', '~> 1.0'

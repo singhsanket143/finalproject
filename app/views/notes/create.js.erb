@@ -1,0 +1,3 @@
+$('#notes').prepend("<%= escape_javascript (render 'home/', note: @note) %>");
+
+$('#note_content').val("");
